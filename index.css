@@ -15,18 +15,64 @@ body {
   min-height: 100vh;
 }
 
-/* Dark mode with white, yellow, and dark gray */
+/* ============================================
+   POLISHED DARK MODE COLOR PALETTE
+   ============================================ */
 .dark {
-  --dm-bg: #121212;
-  --dm-bg-secondary: #1e1e1e;
-  --dm-bg-card: #252525;
-  --dm-text: #ffffff;
-  --dm-text-secondary: #b0b0b0;
-  --dm-accent: #F15A24;
-  --dm-border: #3a3a3a;
+  /* Primary backgrounds - rich depth */
+  --dm-bg-primary: #0a0a0f;
+  --dm-bg-secondary: #12121a;
+  --dm-bg-tertiary: #1a1a25;
+  --dm-bg-card: #1e1e28;
+  --dm-bg-elevated: #242432;
+  
+  /* Text colors - optimized contrast */
+  --dm-text-primary: #f0f0f5;
+  --dm-text-secondary: #a0a0b0;
+  --dm-text-tertiary: #6a6a7a;
+  --dm-text-muted: #4a4a5a;
+  
+  /* Accent colors - vibrant orange */
+  --dm-accent-primary: #F15A24;
+  --dm-accent-secondary: #FF6B35;
+  --dm-accent-glow: rgba(241, 90, 36, 0.4);
+  --dm-accent-gradient: linear-gradient(135deg, #F15A24 0%, #FF6B35 100%);
+  
+  /* Border colors */
+  --dm-border-subtle: rgba(255, 255, 255, 0.06);
+  --dm-border-light: rgba(255, 255, 255, 0.1);
+  --dm-border-medium: rgba(255, 255, 255, 0.15);
+  
+  /* Shadows */
+  --dm-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --dm-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --dm-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --dm-shadow-glow: 0 0 30px rgba(241, 90, 36, 0.15);
+  --dm-shadow-glow-lg: 0 0 60px rgba(241, 90, 36, 0.25);
+  
+  /* Interactive states */
+  --dm-hover-bg: #2a2a38;
+  --dm-active-bg: #32324a;
 }
 
-/* Cartoon logo animation */
+/* ============================================
+   LIGHT MODE VARIABLES (for reference)
+   ============================================ */
+:root {
+  --lm-bg-primary: #f8fafc;
+  --lm-bg-secondary: #ffffff;
+  --lm-bg-card: #ffffff;
+  --lm-text-primary: #0f172a;
+  --lm-text-secondary: #475569;
+  --lm-accent: #1D1D4B;
+  --lm-border: #e2e8f0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Cartoon logo bounce animation */
 @keyframes cartoonBounce {
   0%, 100% {
     transform: rotate(-1deg) translateY(0);
@@ -98,4 +144,174 @@ body {
   50% {
     transform: scale(1.1) translateY(-4px);
   }
+}
+
+/* ============================================
+   DARK MODE ENHANCEMENTS
+   ============================================ */
+
+/* Smooth background transitions */
+.dark body,
+.dark #root,
+.dark [class*="bg-"],
+.dark [class*="bg-[#"] {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Card hover effects for dark mode */
+.dark .group:hover,
+.dark button:not(:disabled):hover,
+.dark [class*="hover:bg"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glow effect for accent elements in dark mode */
+.dark [class*="text-\[#F15A24\]"],
+.dark .accent-glow {
+  text-shadow: 0 0 20px var(--dm-accent-glow);
+}
+
+/* Enhanced border visibility in dark mode */
+.dark [class*="border"],
+.dark [class*="border-["] {
+  border-color: var(--dm-border-subtle);
+}
+
+/* Smooth scrollbar for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--dm-bg-secondary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--dm-border-light);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--dm-border-medium);
+}
+
+/* Selection color in dark mode */
+.dark ::selection {
+  background: var(--dm-accent-glow);
+  color: var(--dm-text-primary);
+}
+
+/* ============================================
+   UTILITY CLASSES FOR DARK MODE
+   ============================================ */
+
+/* Dark mode card styling */
+.dark-card {
+  background: var(--dm-bg-card);
+  border: 1px solid var(--dm-border-subtle);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.dark-card:hover {
+  background: var(--dm-hover-bg);
+  border-color: var(--dm-accent-primary);
+  box-shadow: var(--dm-shadow-glow);
+  transform: translateY(-2px);
+}
+
+/* Dark mode button styling */
+.dark-button {
+  background: var(--dm-bg-tertiary);
+  border: 1px solid var(--dm-border-subtle);
+  color: var(--dm-text-primary);
+  transition: all 0.3s ease;
+}
+
+.dark-button:hover {
+  background: var(--dm-accent-primary);
+  border-color: var(--dm-accent-primary);
+  box-shadow: var(--dm-shadow-glow);
+}
+
+/* Dark mode input styling */
+.dark-input {
+  background: var(--dm-bg-primary);
+  border: 1px solid var(--dm-border-subtle);
+  color: var(--dm-text-primary);
+  transition: all 0.3s ease;
+}
+
+.dark-input:focus {
+  border-color: var(--dm-accent-primary);
+  box-shadow: 0 0 0 3px var(--dm-accent-glow);
+  outline: none;
+}
+
+/* ============================================
+   TEXT GRADIENT FOR ACCENT
+   ============================================ */
+.text-gradient-accent {
+  background: var(--dm-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+.dark .animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ============================================
+   FOCUS STATES FOR ACCESSIBILITY
+   ============================================ */
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark select:focus-visible,
+.dark textarea:focus-visible {
+  outline: 2px solid var(--dm-accent-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   BACKDROP BLUR ENHANCEMENTS
+   ============================================ */
+.dark .backdrop-blur-xl {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+/* ============================================
+   GRADIENT BORDERS
+   ============================================ */
+.gradient-border {
+  position: relative;
+  background: var(--dm-bg-card);
+  border-radius: inherit;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--dm-accent-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
