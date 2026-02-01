@@ -1,0 +1,5 @@
+{
+  "name": "IELTS CDI",
+  "description": "A high-performance, minimalistic computer-delivered IELTS reading practice interface featuring split-pane navigation, adjustable timers, and instant result analysis.",
+  "requestFramePermissions": []
+}
