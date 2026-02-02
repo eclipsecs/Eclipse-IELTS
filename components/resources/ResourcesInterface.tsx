@@ -71,7 +71,7 @@ const ResourcesInterface: React.FC<ResourcesInterfaceProps> = ({
         </button>
 
         {/* Podcasts */}
-        <button onClick={onGoPodcasts} className={`group relative p-8 rounded-[40xl] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
+        <button onClick={onGoPodcasts} className={`group relative p-8 rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
           <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
             <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="12" y="20" width="40" height="28" rx="4" fill="#7E57C2"/>
@@ -89,7 +89,7 @@ const ResourcesInterface: React.FC<ResourcesInterfaceProps> = ({
         </button>
 
         {/* Websites */}
-        <button onClick={onGoWebsites} className={`group relative p-8 rounded-[40xl] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
+        <button onClick={onGoWebsites} className={`group relative p-8 rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
           <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
             <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="8" y="12" width="48" height="40" rx="4" fill="#1E88E5"/>
@@ -110,7 +110,7 @@ const ResourcesInterface: React.FC<ResourcesInterfaceProps> = ({
         </button>
 
         {/* Books to Read */}
-        <button onClick={onGoBooks} className={`group relative p-8 rounded-[40xl] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
+        <button onClick={onGoBooks} className={`group relative p-8 rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
           <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
             <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="6" y="16" width="24" height="36" rx="2" fill="#FF7043"/>
@@ -133,7 +133,7 @@ const ResourcesInterface: React.FC<ResourcesInterfaceProps> = ({
         </button>
 
         {/* Articles */}
-        <button onClick={onGoResourceArticles} className={`group relative p-8 rounded-[40xl] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
+        <button onClick={onGoResourceArticles} className={`group relative p-8 rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
           <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
             <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="10" y="8" width="44" height="48" rx="4" fill="#FAFAFA" stroke="#E0E0E0" strokeWidth="2"/>
