@@ -272,6 +272,31 @@ const HomePage: React.FC<HomePageProps> = ({
         <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Books, videos & study materials</p>
         <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Browse Resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </button>
+
+        <button onClick={() => {}} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+          <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+            {/* Modern Cartoon Announcements Icon */}
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Megaphone base */}
+              <path d="M8 32H16L28 18V26L16 40H8V32Z" fill="#FFA726"/>
+              <path d="M16 40H20L28 48V56L20 64V58" stroke="#FFA726" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              <rect x="28" y="18" width="4" height="12" rx="1" fill="#FFB74D"/>
+              {/* Sound waves */}
+              <path d="M38 26C40 28 40 36 38 38" stroke="#F15A24" strokeWidth="2" strokeLinecap="round" fill="none"/>
+              <path d="M42 22C46 26 46 38 42 42" stroke="#F15A24" strokeWidth="2" strokeLinecap="round" fill="none"/>
+              <path d="M46 18C52 24 52 40 46 46" stroke="#F15A24" strokeWidth="2" strokeLinecap="round" fill="none"/>
+              {/* Notification dot */}
+              <circle cx="50" cy="14" r="6" fill="#EF5350"/>
+              <circle cx="50" cy="14" r="2" fill="white"/>
+              {/* Sparkle decorations */}
+              <path d="M6 8L7 10L9 10L7.5 11.5L8 13.5L6 12L4 13.5L4.5 11.5L3 10L5 10Z" fill="#FFD54F"/>
+              <path d="M56 28L57 30L59 30L57.5 31.5L58 33.5L56 32L54 33.5L54.5 31.5L53 30L55 30Z" fill="#4DB6AC"/>
+            </svg>
+          </div>
+          <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Announcements</h3>
+          <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Updates & news about the website</p>
+          <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>View Updates <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </button>
     </div>
   );
 
