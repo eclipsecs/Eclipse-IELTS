@@ -460,25 +460,42 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
                     className={`group relative rounded-[24px] p-6 cursor-pointer transition-all duration-300 hover:-translate-y-2 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400'} border`}
                   >
                     <div className="flex items-center justify-between mb-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                      <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'bg-[#F15A24]/20' : 'bg-[#F15A24]/10'} ${
                         articleItem.difficulty === 'Easy'
-                          ? isDarkMode ? 'bg-green-900/30 text-green-400' : 'bg-green-100 text-green-600'
+                          ? isDarkMode ? 'text-green-400' : 'text-green-600'
                           : articleItem.difficulty === 'Medium'
-                            ? isDarkMode ? 'bg-yellow-900/30 text-yellow-400' : 'bg-yellow-100 text-yellow-600'
-                            : isDarkMode ? 'bg-red-900/30 text-red-400' : 'bg-red-100 text-red-600'
+                            ? isDarkMode ? 'text-yellow-400' : 'text-yellow-600'
+                            : isDarkMode ? 'text-red-400' : 'text-red-600'
                       }`}>
                         {articleItem.difficulty}
                       </span>
-                      <span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
-                        {articleItem.readingTime} min
-                      </span>
+                      <div className="flex items-center gap-1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={isDarkMode ? '#b0b0b0' : '#64748b'} strokeWidth="2">
+                          <circle cx="12" cy="12" r="10"/>
+                          <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span className={`text-xs font-bold ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
+                          {articleItem.readingTime} min
+                        </span>
+                      </div>
                     </div>
 
-                    <h2 className={`text-xl font-black mb-3 group-hover:text-[#F15A24] transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
-                      {articleItem.title}
-                    </h2>
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className={`p-2 rounded-xl ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={isDarkMode ? '#F15A24' : '#1D1D4B'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                          <polyline points="14 2 14 8 20 8"/>
+                          <line x1="16" y1="13" x2="8" y2="13"/>
+                          <line x1="16" y1="17" x2="8" y2="17"/>
+                          <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                      </div>
+                      <h2 className={`text-xl font-['Fredoka_One'] leading-tight group-hover:text-[#F15A24] transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`} style={{ fontFamily: 'Fredoka One, cursive' }}>
+                        {articleItem.title}
+                      </h2>
+                    </div>
 
-                    <p className={`text-sm mb-4 line-clamp-3 ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
+                    <p className={`text-sm mb-4 line-clamp-3 font-['Fredoka'] ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`} style={{ fontFamily: 'Fredoka, Balsamiq Sans, sans-serif' }}>
                       {articleItem.content.split('\n').filter(p => p.trim()).slice(0, 2).join(' ')}...
                     </p>
 
@@ -487,11 +504,11 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${isDarkMode ? 'bg-[#252525] text-white' : 'bg-slate-100 text-slate-900'}`}>
                           {articleItem.author.split(' ').map(n => n[0]).join('')}
                         </div>
-                        <span className={`text-sm ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
+                        <span className={`text-sm font-['Fredoka'] ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`} style={{ fontFamily: 'Fredoka, Balsamiq Sans, sans-serif' }}>
                           {articleItem.author}
                         </span>
                       </div>
-                      <span className={`text-xs ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B]'}`}>
+                      <span className={`text-sm font-['Fredoka_One'] ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B]'}`} style={{ fontFamily: 'Fredoka One, cursive' }}>
                         Read more →
                       </span>
                     </div>
