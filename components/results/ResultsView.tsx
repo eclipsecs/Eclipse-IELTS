@@ -99,19 +99,45 @@ const ResultsView: React.FC<ResultsViewProps> = ({ state, questions, onRestart, 
       
       <div className="max-w-4xl mx-auto px-4 pt-2">
         <div className={`rounded-[30px] shadow-xl overflow-hidden ${isDarkMode ? 'bg-[#1e1e1e]' : 'bg-white'}`}>
-          <div className="bg-[#1D1D4B] text-white p-8 text-center">
+          <div className="bg-[#F15A24] text-white p-8 text-center">
             <h2 className="text-xs uppercase tracking-[0.4em] font-black mb-3">Score Report</h2>
             <div className="text-7xl font-black mb-4">{correctCount}<span className="text-2xl opacity-40">/</span>{questions.length}</div>
           </div>
           <div className="p-8">
-            <h4 className="text-xl font-black text-center mb-8">{testTitle}</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 border rounded-2xl p-4">
-              <div>{leftCol.map(q => <div key={q.id} className="p-2 border-b flex justify-between"><span>{q.id}</span><b>{q.correctAnswer}</b></div>)}</div>
-              <div>{rightCol.map(q => <div key={q.id} className="p-2 border-b flex justify-between"><span>{q.id}</span><b>{q.correctAnswer}</b></div>)}</div>
+            <h4 className={`text-xl font-black text-center mb-8 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{testTitle}</h4>
+            
+            {/* Enhanced Results Table */}
+            <div className={`mb-10 rounded-2xl overflow-hidden ${isDarkMode ? 'bg-[#252525] border border-[#333]' : 'bg-white border border-slate-200 shadow-sm'}`}>
+              {/* Table Header */}
+              <div className={`grid grid-cols-12 gap-4 p-4 text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'bg-[#1a1a1a] text-[#F15A24]' : 'bg-slate-100 text-slate-500'}`}>
+                <div className="col-span-2 text-center">#</div>
+                <div className="col-span-5">Question</div>
+                <div className="col-span-5 text-right">Answer</div>
+              </div>
+              
+              {/* Table Rows */}
+              {(questions || []).map((q, idx) => {
+                const isCorrect = state.userAnswers[q.id] === q.correctAnswer;
+                return (
+                  <div key={q.id} className={`grid grid-cols-12 gap-4 p-4 items-center border-t transition-colors ${isDarkMode ? 'border-[#333] hover:bg-[#2a2a2a]' : 'border-slate-100 hover:bg-slate-50'}`}>
+                    <div className={`col-span-2 text-center font-bold text-sm ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>{q.id}</div>
+                    <div className={`col-span-5 font-medium ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                      <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs mr-2 ${isCorrect ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                        {isCorrect ? '✓' : '✗'}
+                      </span>
+                      {q.text.length > 40 ? q.text.substring(0, 40) + '...' : q.text}
+                    </div>
+                    <div className={`col-span-5 text-right font-bold ${isCorrect ? (isDarkMode ? 'text-green-400' : 'text-green-600') : (isDarkMode ? 'text-red-400' : 'text-red-500')}`}>
+                      {q.correctAnswer}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
+            
             <div className="flex justify-center gap-4">
-               <button onClick={onRestart} className="px-10 py-4 rounded-full bg-[#1D1D4B] text-white font-black uppercase tracking-widest text-sm">Try Again</button>
-               <button onClick={handleReadScore} className="px-10 py-4 rounded-full border border-gray-300 font-black uppercase tracking-widest text-sm">Speak Score</button>
+               <button onClick={onRestart} className={`px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm transition-all ${isDarkMode ? 'bg-[#F15A24] text-white hover:opacity-90' : 'bg-[#1D1D4B] text-white hover:bg-black'}`}>Try Again</button>
+               <button onClick={handleReadScore} className={`px-10 py-4 rounded-full border font-black uppercase tracking-widest text-sm transition-all ${isDarkMode ? 'border-[#444] text-white hover:border-[#F15A24]' : 'border-gray-300 text-slate-700 hover:border-slate-400'}`}>Speak Score</button>
             </div>
           </div>
         </div>

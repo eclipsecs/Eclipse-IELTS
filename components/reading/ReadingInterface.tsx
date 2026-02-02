@@ -270,7 +270,7 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
         <h2 className={`text-3xl font-black mb-3 tracking-tight transition-colors duration-500 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{passageTitle}</h2>
         <h3 className={`text-lg italic mb-10 pb-6 border-b transition-colors duration-500 ${isDarkMode ? 'text-slate-500 border-white/5' : 'text-slate-500 border-slate-100'}`}>{passageSubtitle}</h3>
         <div className="space-y-6">
-          {(passageContent || []).map((para, i) => (<p key={i} data-para-index={i} className={`text-[17px] leading-[1.8] antialiased transition-opacity duration-500 ${isDarkMode ? 'text-slate-200' : 'opacity-100'}`}>{renderHighlightedText(para, i)}</p>))}
+          {(passageContent || []).map((para, i) => (<p key={i} data-para-index={i} className={`text-[17px] leading-[1.8] antialiased transition-opacity duration-500 ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}`}>{renderHighlightedText(para, i)}</p>))}
         </div>
         <div className="h-40"></div>
       </div>
