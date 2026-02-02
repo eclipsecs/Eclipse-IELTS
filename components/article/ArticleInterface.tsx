@@ -431,14 +431,23 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
         <div className="max-w-6xl mx-auto px-8 py-12">
           {currentView === 'articles' && (
             <div className="animate-in fade-in duration-500">
-              <div className="mb-8">
-                <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'bg-[#F15A24]/20 text-[#F15A24]' : 'bg-[#F15A24]/10 text-[#F15A24]'}`}>
+              <div className="mb-12 text-center">
+                <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider ${isDarkMode ? 'bg-[#F15A24]/20 text-[#F15A24]' : 'bg-[#F15A24]/10 text-[#F15A24]'}`}>
                   Articles
                 </span>
-                <h1 className={`text-3xl md:text-4xl font-black mt-4 mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
-                  Reading Articles
-                </h1>
-                <p className={`text-lg ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
+                <div className="flex items-center justify-center gap-4 mt-6">
+                  <svg className="cartoon-logo w-12 h-12" viewBox="0 0 48 48" fill="none">
+                    <rect x="8" y="6" width="32" height="40" rx="3" fill={isDarkMode ? '#F15A24' : '#1D1D4B'} transform="rotate(-2 8 6)"/>
+                    <rect x="12" y="10" width="24" height="32" rx="2" fill={isDarkMode ? '#1e1e1e' : 'white'} transform="rotate(-2 8 6)"/>
+                    <path d="M16 18h16M16 24h12M16 30h14" stroke={isDarkMode ? '#F15A24' : '#1D1D4B'} strokeWidth="2" strokeLinecap="round"/>
+                    <circle cx="38" cy="42" r="4" fill="#F15A24"/>
+                    <path d="M36 42h4M38 40v4" stroke="white" strokeWidth="1.5"/>
+                  </svg>
+                  <h1 className={`text-4xl md:text-5xl font-['Fredoka_One'] tracking-wide ${isDarkMode ? 'text-white' : 'text-slate-900'}`} style={{ fontFamily: 'Fredoka One, cursive' }}>
+                    Reading Articles
+                  </h1>
+                </div>
+                <p className={`text-xl mt-4 font-['Fredoka'] ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`} style={{ fontFamily: 'Fredoka, Balsamiq Sans, sans-serif' }}>
                   Explore our collection of articles to improve your reading skills
                 </p>
               </div>
