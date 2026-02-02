@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { TestState, Theme, AppView, TestMeta, ArticleData } from './types';
+import { TestState, Theme, AppView, TestMeta } from './types';
 import { AVAILABLE_TESTS } from './data/tests';
-import { AVAILABLE_ARTICLES } from './data/articles';
 import { READING_PASSAGES } from './components/reading/tests/ReadingContent';
 import { READING_QUESTIONS } from './components/reading/answers/ReadingQuestions';
 import { LISTENING_QUESTIONS } from './components/listening/tests/ListeningQuestions';
@@ -20,7 +19,6 @@ import Passage3 from './components/reading/Passage3';
 const App: React.FC = () => {
   const [view, setView] = useState<AppView>('home');
   const [activeTest, setActiveTest] = useState<TestMeta | null>(null);
-  const [activeArticle, setActiveArticle] = useState<ArticleData | null>(null);
   const [state, setState] = useState<TestState>({
     isStarted: false,
     isFinished: false,
@@ -102,21 +100,18 @@ const App: React.FC = () => {
         onGoPassage2={() => setView('passage2')}
         onGoPassage3={() => setView('passage3')}
         onGoArticle={() => {
-          setActiveArticle(AVAILABLE_ARTICLES[0]);
           setView('article');
         }}
       />
     );
   }
 
-  if (view === 'article' && activeArticle) {
+  if (view === 'article') {
     return (
       <ArticleInterface
-        article={activeArticle}
         theme={state.theme}
         onToggleTheme={handleToggleTheme}
         onGoHome={() => {
-          setActiveArticle(null);
           setView('home');
         }}
       />

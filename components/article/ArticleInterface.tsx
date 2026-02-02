@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import { ArticleData, ArticlePracticeQuestion, Theme, VocabularyItem } from '../../types';
+import { ArticleData, ArticlePracticeQuestion, Theme } from '../../types';
 import Header from '../navbar/Header';
+import { AVAILABLE_ARTICLES } from '../../data/articles';
 
 interface ArticleInterfaceProps {
-  article: ArticleData;
   theme: Theme;
   onToggleTheme: () => void;
   onGoHome: () => void;
@@ -13,18 +13,33 @@ interface ArticleInterfaceProps {
 type ArticleView = 'articles' | 'article-detail' | 'vocabulary' | 'practice' | 'results';
 
 const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
-  article,
   theme,
   onToggleTheme,
   onGoHome,
 }) => {
   const isDarkMode = theme === 'dark';
-  const [currentView, setCurrentView] = useState<ArticleView>('article-detail');
+  const [currentView, setCurrentView] = useState<ArticleView>('articles');
+  const [selectedArticle, setSelectedArticle] = useState<ArticleData | null>(null);
   const [userAnswers, setUserAnswers] = useState<Record<number, string | string[]>>({});
   const [showResults, setShowResults] = useState(false);
   const [vocabFilter, setVocabFilter] = useState('');
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
-  const [selectedVocab, setSelectedVocab] = useState<VocabularyItem | null>(null);
+
+  const article = selectedArticle;
+  const setArticle = (newArticle: ArticleData | null) => setSelectedArticle(newArticle);
+
+  const handleSelectArticle = (articleData: ArticleData) => {
+    setArticle(articleData);
+    setCurrentView('article-detail');
+    setUserAnswers({});
+    setShowResults(false);
+    setVocabFilter('');
+  };
+
+  const handleGoBack = () => {
+    setArticle(null);
+    setCurrentView('articles');
+  };
 
   const handleAnswerChange = (id: number, val: string | string[]) => {
     setUserAnswers(prev => ({ ...prev, [id]: val }));
@@ -35,11 +50,12 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
   };
 
   const calculateScore = () => {
+    if (!article) return { correct: 0, total: 0, questionResults: [] };
     let correct = 0;
     let total = 0;
     const questionResults: { question: ArticlePracticeQuestion; isCorrect: boolean; userAnswer: string | string[] }[] = [];
 
-    article.practice.forEach(q => {
+    article?.practice.forEach(q => {
       if (q.type !== 'summary') {
         total += q.points;
         const userAnswer = userAnswers[q.id];
@@ -61,7 +77,7 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
     return { correct, total, questionResults };
   };
 
-  const filteredVocab = article.vocabulary.filter(v => 
+  const filteredVocab = article?.vocabulary.filter(v => 
     v.word.toLowerCase().includes(vocabFilter.toLowerCase()) ||
     v.definition.toLowerCase().includes(vocabFilter.toLowerCase())
   );
@@ -79,24 +95,33 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
   const renderArticleView = () => (
     <div className="animate-in fade-in duration-500">
       <div className="mb-8">
+        <button
+          onClick={handleGoBack}
+          className={`flex items-center gap-2 text-sm font-bold uppercase tracking-wider mb-4 ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B]'}`}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to Articles
+        </button>
         <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'bg-[#F15A24]/20 text-[#F15A24]' : 'bg-[#F15A24]/10 text-[#F15A24]'}`}>
           Article
         </span>
         <h1 className={`text-3xl md:text-4xl font-black mt-4 mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
-          {article.title}
+          {article?.title}
         </h1>
         <div className={`flex items-center gap-4 text-sm ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
-          <span>By {article.author}</span>
+          <span>By {article?.author}</span>
           <span>•</span>
-          <span>{article.source}</span>
+          <span>{article?.source}</span>
           <span>•</span>
-          <span>{article.readingTime} min read</span>
+          <span>{article?.readingTime} min read</span>
         </div>
       </div>
 
       <div className={`rounded-[32px] p-8 mb-8 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a]' : 'bg-white border-slate-200'} border`}>
         <p className={`text-lg leading-relaxed whitespace-pre-line ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-700'}`}>
-          {article.content}
+          {article?.content}
         </p>
       </div>
 
@@ -112,7 +137,7 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
             </svg>
           </div>
           <h3 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Vocabulary</h3>
-          <p className={`text-sm ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>{article.vocabulary.length} words to learn</p>
+          <p className={`text-sm ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>{article?.vocabulary.length} words to learn</p>
         </button>
 
         <button
@@ -127,7 +152,7 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
             </svg>
           </div>
           <h3 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Practice</h3>
-          <p className={`text-sm ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>{article.practice.length} questions</p>
+          <p className={`text-sm ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>{article?.practice.length} questions</p>
         </button>
       </div>
     </div>
@@ -240,7 +265,7 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
         )}
 
         <div className="space-y-6">
-          {article.practice.map((question, index) => {
+          {article?.practice.map((question, index) => {
             const userAnswer = userAnswers[question.id];
             const isCorrect = score?.questionResults.find(q => q.question.id === question.id)?.isCorrect;
 
@@ -403,7 +428,69 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
       />
 
       <main className="flex-1 overflow-auto">
-        <div className="max-w-4xl mx-auto px-8 py-12">
+        <div className="max-w-6xl mx-auto px-8 py-12">
+          {currentView === 'articles' && (
+            <div className="animate-in fade-in duration-500">
+              <div className="mb-8">
+                <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'bg-[#F15A24]/20 text-[#F15A24]' : 'bg-[#F15A24]/10 text-[#F15A24]'}`}>
+                  Articles
+                </span>
+                <h1 className={`text-3xl md:text-4xl font-black mt-4 mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+                  Reading Articles
+                </h1>
+                <p className={`text-lg ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
+                  Explore our collection of articles to improve your reading skills
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {AVAILABLE_ARTICLES.map((articleItem) => (
+                  <article
+                    key={articleItem.id}
+                    onClick={() => handleSelectArticle(articleItem)}
+                    className={`group relative rounded-[24px] p-6 cursor-pointer transition-all duration-300 hover:-translate-y-2 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400'} border`}
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                        articleItem.difficulty === 'Easy'
+                          ? isDarkMode ? 'bg-green-900/30 text-green-400' : 'bg-green-100 text-green-600'
+                          : articleItem.difficulty === 'Medium'
+                            ? isDarkMode ? 'bg-yellow-900/30 text-yellow-400' : 'bg-yellow-100 text-yellow-600'
+                            : isDarkMode ? 'bg-red-900/30 text-red-400' : 'bg-red-100 text-red-600'
+                      }`}>
+                        {articleItem.difficulty}
+                      </span>
+                      <span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
+                        {articleItem.readingTime} min
+                      </span>
+                    </div>
+
+                    <h2 className={`text-xl font-black mb-3 group-hover:text-[#F15A24] transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+                      {articleItem.title}
+                    </h2>
+
+                    <p className={`text-sm mb-4 line-clamp-3 ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
+                      {articleItem.content.split('\n').filter(p => p.trim()).slice(0, 2).join(' ')}...
+                    </p>
+
+                    <div className="flex items-center justify-between pt-4 border-t ${isDarkMode ? 'border-[#3a3a3a]' : 'border-slate-200'}">
+                      <div className="flex items-center gap-2">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${isDarkMode ? 'bg-[#252525] text-white' : 'bg-slate-100 text-slate-900'}`}>
+                          {articleItem.author.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <span className={`text-sm ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>
+                          {articleItem.author}
+                        </span>
+                      </div>
+                      <span className={`text-xs ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B]'}`}>
+                        Read more →
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
           {currentView === 'article-detail' && renderArticleView()}
           {currentView === 'vocabulary' && renderVocabularyView()}
           {currentView === 'practice' && renderPracticeView()}
