@@ -106,29 +106,78 @@ const ResultsView: React.FC<ResultsViewProps> = ({ state, questions, onRestart, 
           <div className="p-8">
             <h4 className={`text-xl font-black text-center mb-8 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{testTitle}</h4>
             
-            {/* Enhanced Results Table */}
+            {/* Answers Comparison Table */}
             <div className={`mb-10 rounded-2xl overflow-hidden ${isDarkMode ? 'bg-[#252525] border border-[#333]' : 'bg-white border border-slate-200 shadow-sm'}`}>
               {/* Table Header */}
               <div className={`grid grid-cols-12 gap-4 p-4 text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'bg-[#1a1a1a] text-[#F15A24]' : 'bg-slate-100 text-slate-500'}`}>
                 <div className="col-span-2 text-center">#</div>
-                <div className="col-span-5">Question</div>
-                <div className="col-span-5 text-right">Answer</div>
+                <div className="col-span-5">Your Answer</div>
+                <div className="col-span-5 text-right">Correct Answer</div>
               </div>
               
               {/* Table Rows */}
-              {(questions || []).map((q, idx) => {
-                const isCorrect = state.userAnswers[q.id] === q.correctAnswer;
+              {(questions || []).map((q) => {
+                const userAnswer = state.userAnswers[q.id];
+                const isCorrect = userAnswer === q.correctAnswer;
                 return (
                   <div key={q.id} className={`grid grid-cols-12 gap-4 p-4 items-center border-t transition-colors ${isDarkMode ? 'border-[#333] hover:bg-[#2a2a2a]' : 'border-slate-100 hover:bg-slate-50'}`}>
-                    <div className={`col-span-2 text-center font-bold text-sm ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>{q.id}</div>
-                    <div className={`col-span-5 font-medium ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                      <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs mr-2 ${isCorrect ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
-                        {isCorrect ? '✓' : '✗'}
-                      </span>
-                      {q.text.length > 40 ? q.text.substring(0, 40) + '...' : q.text}
+                    <div className="col-span-2 text-center font-bold text-sm">{q.id}</div>
+                    <div className={`col-span-5 font-bold ${isCorrect ? (isDarkMode ? 'text-green-400' : 'text-green-600') : (isDarkMode ? 'text-red-400' : 'text-red-500')}`}>
+                      {isCorrect ? <span className="flex items-center"><span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-xs mr-2 ${isCorrect ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>{isCorrect ? '✓' : '✗'}</span>{userAnswer || 'Not answered'}</span> : <span className="flex items-center"><span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-xs mr-2 bg-red-500/20 text-red-400`}>✗</span>{userAnswer || 'Not answered'}</span>}
                     </div>
-                    <div className={`col-span-5 text-right font-bold ${isCorrect ? (isDarkMode ? 'text-green-400' : 'text-green-600') : (isDarkMode ? 'text-red-400' : 'text-red-500')}`}>
+                    <div className={`col-span-5 text-right font-bold ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>
                       {q.correctAnswer}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Answer Explanations Table */}
+            <div className={`mb-10 rounded-2xl overflow-hidden ${isDarkMode ? 'bg-[#252525] border border-[#333]' : 'bg-white border border-slate-200 shadow-sm'}`}>
+              {/* Table Header */}
+              <div className={`grid grid-cols-12 gap-4 p-4 text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'bg-[#1a1a1a] text-[#F15A24]' : 'bg-slate-100 text-slate-500'}`}>
+                <div className="col-span-1 text-center">#</div>
+                <div className="col-span-11">Answer Details</div>
+              </div>
+              
+              {/* Table Rows */}
+              {(questions || []).map((q) => {
+                const isCorrect = state.userAnswers[q.id] === q.correctAnswer;
+                return (
+                  <div key={q.id} className={`grid grid-cols-12 gap-4 p-4 items-start border-t transition-colors ${isDarkMode ? 'border-[#333] hover:bg-[#2a2a2a]' : 'border-slate-100 hover:bg-slate-50'}`}>
+                    <div className="col-span-1 text-center font-bold text-sm pt-1">{q.id}</div>
+                    <div className="col-span-11 space-y-3">
+                      {/* Correct/Incorrect Badge */}
+                      <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${isCorrect ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                        {isCorrect ? '✓ Correct' : '✗ Incorrect'}
+                      </div>
+                      
+                      {/* Question Text */}
+                      <p className={`text-sm font-medium ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                        {q.text}
+                      </p>
+                      
+                      {/* Answer Location */}
+                      {q.answerLocation && (
+                        <div className={`text-xs ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                          <span className="font-semibold">Location:</span> {q.answerLocation}
+                        </div>
+                      )}
+                      
+                      {/* Synonyms */}
+                      {q.synonyms && q.synonyms.length > 0 && (
+                        <div className={`text-xs ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                          <span className="font-semibold">Synonyms/Keywords:</span> {q.synonyms.join(', ')}
+                        </div>
+                      )}
+                      
+                      {/* Explanation */}
+                      {q.explanation && (
+                        <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                          {q.explanation}
+                        </p>
+                      )}
                     </div>
                   </div>
                 );

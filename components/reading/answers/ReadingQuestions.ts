@@ -4,36 +4,122 @@ import { Question, QuestionType } from '../../../types';
 export const READING_QUESTIONS: Record<string, Question[]> = {
   'r-p1-underground': [
     // Questions 1-6: Matching issues to people/organizations
-    { id: 1, type: QuestionType.MATCHING_PEOPLE, text: "The cost implications of fitting plants with the necessary equipment.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "D" },
-    { id: 2, type: QuestionType.MATCHING_PEOPLE, text: "The effects sequestration could have on sea creatures.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "E" },
-    { id: 3, type: QuestionType.MATCHING_PEOPLE, text: "The reasons why products such as oil and gas continue to be popular energy sources.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "D" },
-    { id: 4, type: QuestionType.MATCHING_PEOPLE, text: "The need for industrialised countries to give aid to less wealthy countries.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "E" },
-    { id: 5, type: QuestionType.MATCHING_PEOPLE, text: "The significant increase in carbon dioxide concentrations in the air over the last 100 years.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "A" },
-    { id: 6, type: QuestionType.MATCHING_PEOPLE, text: "The potential for sequestration to harm human life.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "F" },
+    { id: 1, type: QuestionType.MATCHING_PEOPLE, text: "The cost implications of fitting plants with the necessary equipment.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "D", answerLocation: "Paragraph F, lines 1-3", synonyms: ["cost", "expense", "financial"], explanation: "Klaus Lackner states that it costs about $50 per tonne to capture carbon dioxide, making it too expensive to adapt existing plants." },
+    { id: 2, type: QuestionType.MATCHING_PEOPLE, text: "The effects sequestration could have on sea creatures.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "E", answerLocation: "Paragraph G, lines 3-5", synonyms: ["marine life", "ocean life", "aquatic"], explanation: "David Hawkins warns that carbon dioxide could alter the chemical balance in the ocean with harmful consequences for marine life." },
+    { id: 3, type: QuestionType.MATCHING_PEOPLE, text: "The reasons why products such as oil and gas continue to be popular energy sources.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "D", answerLocation: "Paragraph E, lines 3-4", synonyms: ["fossil fuels", "popularity", "usage"], explanation: "Klaus Lackner explains that around 85% of the world's energy comes from fossil fuels as they are the cheapest and most plentiful source." },
+    { id: 4, type: QuestionType.MATCHING_PEOPLE, text: "The need for industrialised countries to give aid to less wealthy countries.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "E", answerLocation: "Paragraph J, lines 5-8", synonyms: ["assistance", "support", "developing nations"], explanation: "David Hawkins argues that developed nations should provide assistance to encourage developing countries to use sequestration." },
+    { id: 5, type: QuestionType.MATCHING_PEOPLE, text: "The significant increase in carbon dioxide concentrations in the air over the last 100 years.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "A", answerLocation: "Paragraph C, lines 2-3", synonyms: ["concentration increase", "emissions rise", "CO2 levels"], explanation: "Scott Klara reports that airborne carbon dioxide concentrations have risen by nearly a third over the past century." },
+    { id: 6, type: QuestionType.MATCHING_PEOPLE, text: "The potential for sequestration to harm human life.", options: [{label: "A - Scott Klara", value: "A"}, {label: "B - Intergovernmental Panel on Climate Change", value: "B"}, {label: "C - International Energy Agency", value: "C"}, {label: "D - Klaus Lackner", value: "D"}, {label: "E - David Hawkins", value: "E"}, {label: "F - World Wide Fund for Nature Australia", value: "F"}], correctAnswer: "F", answerLocation: "Paragraph I, lines 3-4", synonyms: ["risk", "danger", "safety"], explanation: "World Wide Fund for Australia warns that large volumes of carbon dioxide could escape and cause asphyxiation." },
     // Questions 7-9: Paragraph matching
-    { id: 7, type: QuestionType.PARAGRAPH_MATCH, text: "Examples of sequestration already in use in several parts of the world.", options: [{label: "A", value: "A"}, {label: "B", value: "B"}, {label: "C", value: "C"}, {label: "D", value: "D"}, {label: "E", value: "E"}, {label: "F", value: "F"}, {label: "G", value: "G"}, {label: "H", value: "H"}, {label: "I", value: "I"}, {label: "J", value: "J"}], correctAnswer: "H" },
-    { id: 8, type: QuestionType.PARAGRAPH_MATCH, text: "An example of putting carbon dioxide emissions to use in the food and beverage industry.", options: [{label: "A", value: "A"}, {label: "B", value: "B"}, {label: "C", value: "C"}, {label: "D", value: "D"}, {label: "E", value: "E"}, {label: "F", value: "F"}, {label: "G", value: "G"}, {label: "H", value: "H"}, {label: "I", value: "I"}, {label: "J", value: "J"}], correctAnswer: "F" },
-    { id: 9, type: QuestionType.PARAGRAPH_MATCH, text: "Current examples of the environmental harm attributed to carbon dioxide in the air.", options: [{label: "A", value: "A"}, {label: "B", value: "B"}, {label: "C", value: "C"}, {label: "D", value: "D"}, {label: "E", value: "E"}, {label: "F", value: "F"}, {label: "G", value: "G"}, {label: "H", value: "H"}, {label: "I", value: "I"}, {label: "J", value: "J"}], correctAnswer: "C" },
+    { id: 7, type: QuestionType.PARAGRAPH_MATCH, text: "Examples of sequestration already in use in several parts of the world.", options: [{label: "A", value: "A"}, {label: "B", value: "B"}, {label: "C", value: "C"}, {label: "D", value: "D"}, {label: "E", value: "E"}, {label: "F", value: "F"}, {label: "G", value: "G"}, {label: "H", value: "H"}, {label: "I", value: "I"}, {label: "J", value: "J"}], correctAnswer: "H", answerLocation: "Paragraph H", synonyms: ["current examples", "existing projects", "already in use"], explanation: "Paragraph H describes two current projects: oil recovery in western Canada and a saline aquifer in the North Sea." },
+    { id: 8, type: QuestionType.PARAGRAPH_MATCH, text: "An example of putting carbon dioxide emissions to use in the food and beverage industry.", options: [{label: "A", value: "A"}, {label: "B", value: "B"}, {label: "C", value: "C"}, {label: "D", value: "D"}, {label: "E", value: "E"}, {label: "F", value: "F"}, {label: "G", value: "G"}, {label: "H", value: "H"}, {label: "I", value: "I"}, {label: "J", value: "J"}], correctAnswer: "F", answerLocation: "Paragraph F, lines 6-8", synonyms: ["practical use", "commercial application"], explanation: "Paragraph F mentions that captured carbon is sold for various uses, including carbonating soft drinks." },
+    { id: 9, type: QuestionType.PARAGRAPH_MATCH, text: "Current examples of the environmental harm attributed to carbon dioxide in the air.", options: [{label: "A", value: "A"}, {label: "B", value: "B"}, {label: "C", value: "C"}, {label: "D", value: "D"}, {label: "E", value: "E"}, {label: "F", value: "F"}, {label: "G", value: "G"}, {label: "H", value: "H"}, {label: "I", value: "I"}, {label: "J", value: "J"}], correctAnswer: "C", answerLocation: "Paragraph C, lines 4-6", synonyms: ["environmental damage", "climate impact"], explanation: "Paragraph C discusses how increased carbon dioxide levels are believed to cause rising temperatures and sea levels." },
     // Questions 10-13: TRUE/FALSE/NOT GIVEN
-    { id: 10, type: QuestionType.TFNG, text: "Both developing and developed nations have decided to investigate carbon dioxide sequestration.", options: [{label: "TRUE", value: "TRUE"}, {label: "FALSE", value: "FALSE"}, {label: "NOT GIVEN", value: "NOT GIVEN"}], correctAnswer: "TRUE" },
-    { id: 11, type: QuestionType.TFNG, text: "A growing economy will use more power.", options: [{label: "TRUE", value: "TRUE"}, {label: "FALSE", value: "FALSE"}, {label: "NOT GIVEN", value: "NOT GIVEN"}], correctAnswer: "TRUE" },
-    { id: 12, type: QuestionType.TFNG, text: "Capturing carbon dioxide has become financially attractive.", options: [{label: "TRUE", value: "TRUE"}, {label: "FALSE", value: "FALSE"}, {label: "NOT GIVEN", value: "NOT GIVEN"}], correctAnswer: "FALSE" },
-    { id: 13, type: QuestionType.TFNG, text: "More forests need to be planted to improve the atmosphere.", options: [{label: "TRUE", value: "TRUE"}, {label: "FALSE", value: "FALSE"}, {label: "NOT GIVEN", value: "NOT GIVEN"}], correctAnswer: "NOT GIVEN" }
+    { id: 10, type: QuestionType.TFNG, text: "Both developing and developed nations have decided to investigate carbon dioxide sequestration.", options: [{label: "TRUE", value: "TRUE"}, {label: "FALSE", value: "FALSE"}, {label: "NOT GIVEN", value: "NOT GIVEN"}], correctAnswer: "TRUE", answerLocation: "Paragraph B, lines 3-5", synonyms: ["international cooperation", "research agreement"], explanation: "Paragraph B states that delegates from fourteen industrialised and developing countries agreed to cooperative research into carbon capture and storage." },
+    { id: 11, type: QuestionType.TFNG, text: "A growing economy will use more power.", options: [{label: "TRUE", value: "TRUE"}, {label: "FALSE", value: "FALSE"}, {label: "NOT GIVEN", value: "NOT GIVEN"}], correctAnswer: "TRUE", answerLocation: "Paragraph D, lines 2-3", synonyms: ["economic growth", "energy consumption"], explanation: "Paragraph D states that increased energy consumption is a key to economic growth." },
+    { id: 12, type: QuestionType.TFNG, text: "Capturing carbon dioxide has become financially attractive.", options: [{label: "TRUE", value: "TRUE"}, {label: "FALSE", value: "FALSE"}, {label: "NOT GIVEN", value: "NOT GIVEN"}], correctAnswer: "FALSE", answerLocation: "Paragraph F, lines 3-5", synonyms: ["cost", "expensive", "financial viability"], explanation: "Paragraph F states that capturing carbon dioxide costs $50 per tonne and raises electricity costs by 30-80%, making it financially unattractive." },
+    { id: 13, type: QuestionType.TFNG, text: "More forests need to be planted to improve the atmosphere.", options: [{label: "TRUE", value: "TRUE"}, {label: "FALSE", value: "FALSE"}, {label: "NOT GIVEN", value: "NOT GIVEN"}], correctAnswer: "NOT GIVEN", answerLocation: "N/A", synonyms: ["reforestation", "afforestation"], explanation: "While forests are mentioned as carbon sinks in Paragraph G, the passage does not specifically state that more forests need to be planted." }
   ],
   'r-p1': [
-    { id: 1, type: QuestionType.CLASSIFICATION, text: "being expensive", correctAnswer: "C", options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}] },
-    { id: 2, type: QuestionType.CLASSIFICATION, text: "adds flavor to food", correctAnswer: "A", options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}] },
-    { id: 3, type: QuestionType.CLASSIFICATION, text: "used as currency", correctAnswer: "D", options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}] },
-    { id: 4, type: QuestionType.CLASSIFICATION, text: "being see-through", correctAnswer: "B", options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}] },
-    { id: 5, type: QuestionType.CLASSIFICATION, text: "referred to by Herman Melville", correctAnswer: "A", options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}] },
-    { id: 6, type: QuestionType.CLASSIFICATION, text: "produces sweet smell", correctAnswer: "A", options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}] },
-    { id: 7, type: QuestionType.FILL_GAPS, text: "Sperm whales can't digest the ................. of the squids.", correctAnswer: "beaks", placeholder: "7." },
-    { id: 8, type: QuestionType.FILL_GAPS, text: "Sperm whales drive the irritants out of their intestines by .................", correctAnswer: "vomiting", placeholder: "8." },
-    { id: 9, type: QuestionType.FILL_GAPS, text: "The vomit of sperm whales gradually ................. on contact of air before having pleasant smell.", correctAnswer: "hardens", placeholder: "9." },
-    { id: 10, type: QuestionType.TFNG, text: "Most ambergris comes from the dead whales today.", correctAnswer: "TRUE" },
-    { id: 11, type: QuestionType.TFNG, text: "Ambergris is becoming more expensive than before.", correctAnswer: "NOT GIVEN" },
-    { id: 12, type: QuestionType.TFNG, text: "Ambergris is still a popular ingredient in perfume production today.", correctAnswer: "FALSE" },
-    { id: 13, type: QuestionType.TFNG, text: "New uses of ambergris have been discovered recently.", correctAnswer: "NOT GIVEN" }
+    { 
+      id: 1, 
+      type: QuestionType.CLASSIFICATION, 
+      text: "being expensive", 
+      correctAnswer: "C", 
+      options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}],
+      answerLocation: "Paragraph 3, lines 1-3",
+      synonyms: ["costly", "high value", "precious", "valuable"],
+      explanation: "Both ambergris and amber are among the most sought-after substances in the world, almost as valuable as gold. Ambergris sells for roughly $20 a gram."
+    },
+    { 
+      id: 2, 
+      type: QuestionType.CLASSIFICATION, 
+      text: "adds flavor to food", 
+      correctAnswer: "A", 
+      options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}],
+      answerLocation: "Paragraph 1, lines 2-3",
+      synonyms: ["taste", "flavouring", "seasoning", "culinary use"],
+      explanation: "For centuries, ambergris has been used as a flavouring for food. Amber (fossilized resin) has no culinary use."
+    },
+    { 
+      id: 3, 
+      type: QuestionType.CLASSIFICATION, 
+      text: "used as currency", 
+      correctAnswer: "D", 
+      options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}],
+      answerLocation: "N/A",
+      synonyms: ["money", "payment", "trade"],
+      explanation: "Neither ambergris nor amber were used as currency according to the passage. Both were valuable commodities but not used as money."
+    },
+    { 
+      id: 4, 
+      type: QuestionType.CLASSIFICATION, 
+      text: "being see-through", 
+      correctAnswer: "B", 
+      options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}],
+      answerLocation: "Paragraph 3, lines 7-8",
+      synonyms: ["transparent", "clear", "pellucid"],
+      explanation: "Amber is described as a hard, transparent material derived from tree resin. Ambergris is not transparent."
+    },
+    { 
+      id: 5, 
+      type: QuestionType.CLASSIFICATION, 
+      text: "referred to by Herman Melville", 
+      correctAnswer: "A", 
+      options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}],
+      answerLocation: "Paragraph 2, lines 3-4",
+      synonyms: ["mentioned", "written about", "cited"],
+      explanation: "In the 1851 whaling novel Moby-Dick, Herman Melville claimed that ambergris was 'largely used in perfumery.'"
+    },
+    { 
+      id: 6, 
+      type: QuestionType.CLASSIFICATION, 
+      text: "produces sweet smell", 
+      correctAnswer: "A", 
+      options: [{label: "ambergris only", value: "A"}, {label: "amber only", value: "B"}, {label: "both ambergris and amber", value: "C"}, {label: "neither ambergris nor amber", value: "D"}],
+      answerLocation: "Paragraph 3, lines 4-5",
+      synonyms: ["fragrant", "aromatic", "scented"],
+      explanation: "Ambergris produces a sweet, smooth, musky and pleasant earthy aroma after hardening. Amber is fossilized resin with no scent."
+    },
+    { id: 7, type: QuestionType.FILL_GAPS, text: "Sperm whales can't digest the ................. of the squids.", correctAnswer: "beaks", placeholder: "7.", answerLocation: "Paragraph 3, lines 2-3", synonyms: ["jaws", "mouthparts", "mandibles"], explanation: "Sperm whales consume large quantities of squid but cannot digest the hard, sharp, parrot-like beaks, which become irritants in their digestive system." },
+    { id: 8, type: QuestionType.FILL_GAPS, text: "Sperm whales drive the irritants out of their intestines by .................", correctAnswer: "vomiting", placeholder: "8.", answerLocation: "Paragraph 3, lines 4-5", synonyms: ["expelling", "regurgitating"], explanation: "The whales expel these irritants through vomiting, which is how ambergris is initially produced." },
+    { id: 9, type: QuestionType.FILL_GAPS, text: "The vomit of sperm whales gradually ................. on contact of air before having pleasant smell.", correctAnswer: "hardens", placeholder: "9.", answerLocation: "Paragraph 3, lines 5-6", synonyms: ["solidifies", "dries", "oxidizes"], explanation: "When exposed to air and seawater, the vomited material hardens into a smooth, waxy piece over about a decade." },
+    { 
+      id: 10, 
+      type: QuestionType.TFNG, 
+      text: "Most ambergris comes from the dead whales today.", 
+      correctAnswer: "TRUE",
+      answerLocation: "Paragraph 4, lines 1-3",
+      synonyms: ["deceased", "died", "found dead", "carcasses"],
+      explanation: "By the 20th century, ambergris is mainly recovered from inside the carcasses of sperm whales, not from killing them."
+    },
+    { 
+      id: 11, 
+      type: QuestionType.TFNG, 
+      text: "Ambergris is becoming more expensive than before.", 
+      correctAnswer: "NOT GIVEN",
+      answerLocation: "N/A",
+      synonyms: ["price", "cost", "value increase"],
+      explanation: "While ambergris is described as expensive ($20 per gram), the passage does not indicate whether its price is increasing over time."
+    },
+    { 
+      id: 12, 
+      type: QuestionType.TFNG, 
+      text: "Ambergris is still a popular ingredient in perfume production today.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 4, lines 6-9",
+      synonyms: ["perfumes", "fragrances", "perfumery"],
+      explanation: "The passage states that big fragrance suppliers prefer to use chemical derivatives instead of ambergris due to cost, availability and legal issues."
+    },
+    { 
+      id: 13, 
+      type: QuestionType.TFNG, 
+      text: "New uses of ambergris have been discovered recently.", 
+      correctAnswer: "NOT GIVEN",
+      answerLocation: "N/A",
+      synonyms: ["applications", "new discoveries", "recent developments"],
+      explanation: "The passage mentions traditional uses of ambergris but does not provide information about any recently discovered new uses."
+    }
   ],
   'r-cultural-tourist': [
     { id: 1, type: QuestionType.TFNG, text: "Cyriacus was unable to research his journeys before he left.", correctAnswer: "TRUE" },
@@ -67,38 +153,166 @@ export const READING_QUESTIONS: Record<string, Question[]> = {
     { id: 40, type: QuestionType.TFNG, text: "Employees who learn to use new technology quickly will get promoted.", options: [{ label: "TRUE", value: "TRUE" }, { label: "FALSE", value: "FALSE" }, { label: "NOT GIVEN", value: "NOT GIVEN" }], correctAnswer: "NOT GIVEN" }
   ],
   'r-ascension': [
-    { id: 1, type: QuestionType.TFNG, text: "People can visit Ascension easily today.", correctAnswer: "FALSE" },
-    { id: 2, type: QuestionType.TFNG, text: "The mid-Atlantic ridge continues to experience volcanic activity.", correctAnswer: "TRUE" },
-    { id: 3, type: QuestionType.TFNG, text: "João da Nova Castella was the first to call his discovery Ascension Island.", correctAnswer: "FALSE" },
-    { id: 4, type: QuestionType.TFNG, text: "When the island was discovered, its center contained more life than the area near the sea.", correctAnswer: "NOT GIVEN" },
-    { id: 5, type: QuestionType.TFNG, text: "The Portuguese military wanted to use the island as a base.", correctAnswer: "NOT GIVEN" },
-    { id: 6, type: QuestionType.TFNG, text: "In the 19th century, Ascension Island acted as an important port for naval supplies.", correctAnswer: "TRUE" },
-    { id: 7, type: QuestionType.TFNG, text: "The British imported fresh water to Ascension Island from southern Africa.", correctAnswer: "FALSE" },
-    { id: 8, type: QuestionType.TFNG, text: "When it rained on Ascension Island, the water quickly dried up.", correctAnswer: "TRUE" },
-    { id: 9, type: QuestionType.FILL_GAPS, text: "before his 1836 visit, Darwin had limited ............. of what he might find", correctAnswer: "expectations", placeholder: "9." },
-    { id: 10, type: QuestionType.FILL_GAPS, text: "after his arrival, Darwin saw the ............. of the island and so devised a plan", correctAnswer: "potential", placeholder: "10." },
-    { id: 11, type: QuestionType.FILL_GAPS, text: "on an expedition to explore the area around ............. , Hooker visited Ascension", correctAnswer: "Antarctica", placeholder: "11." },
-    { id: 12, type: QuestionType.FILL_GAPS, text: "trees were planted on Ascension to lessen the ............. of rainwater", correctAnswer: "evaporation", placeholder: "12." },
-    { id: 13, type: QuestionType.FILL_GAPS, text: "from the 1850s, plants were brought to Ascension from ............. around the world", correctAnswer: "gardens", placeholder: "13." },
-    { id: 14, type: QuestionType.FILL_GAPS, text: "the cloud forest traps moisture contained in the ............. which blows off the ocean", correctAnswer: "mist", placeholder: "14." },
-    { id: 15, type: QuestionType.FILL_GAPS, text: "the cloud forest is a successful man-made .............", correctAnswer: "ecosystem", placeholder: "15." },
-    { id: 16, type: QuestionType.FILL_GAPS, text: "According to Dr Dave Wilkinson, the ideas learned from Ascension may be applicable to life in future human ............. on Mars.", correctAnswer: "colonies", placeholder: "16." }
+    { 
+      id: 1, 
+      type: QuestionType.TFNG, 
+      text: "People can visit Ascension easily today.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 1, lines 3-4",
+      synonyms: ["accessibility", "travel", "visit"],
+      explanation: "The passage states that Ascension Island is 'certainly difficult for an ordinary commercial traveler to reach even today.'"
+    },
+    { 
+      id: 2, 
+      type: QuestionType.TFNG, 
+      text: "The mid-Atlantic ridge continues to experience volcanic activity.", 
+      correctAnswer: "TRUE",
+      answerLocation: "Paragraph 1, lines 5-6",
+      synonyms: ["volcanoes", "geological activity", "hot spot"],
+      explanation: "The passage states that Ascension 'occupies a hot spot on the ridge' and its 'volcano is especially active to this day.'"
+    },
+    { 
+      id: 3, 
+      type: QuestionType.TFNG, 
+      text: "João da Nova Castella was the first to call his discovery Ascension Island.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 2, lines 1-2",
+      synonyms: ["naming", "discoverer", "history"],
+      explanation: "João da Nova Castella discovered the island in 1501, but it was named Ascension Island two years later by Alfonso de Albuquerque."
+    },
+    { 
+      id: 4, 
+      type: QuestionType.TFNG, 
+      text: "When the island was discovered, its center contained more life than the area near the sea.", 
+      correctAnswer: "NOT GIVEN",
+      answerLocation: "N/A",
+      synonyms: ["vegetation", "life", "ecosystem"],
+      explanation: "The passage mentions that coastal regions had 'a few small, underdeveloped plants' but says nothing about comparing life in the center to coastal areas."
+    },
+    { 
+      id: 5, 
+      type: QuestionType.TFNG, 
+      text: "The Portuguese military wanted to use the island as a base.", 
+      correctAnswer: "NOT GIVEN",
+      answerLocation: "N/A",
+      synonyms: ["military", "strategic base", "Portuguese"],
+      explanation: "While the British military used the island as a strategic base in the 19th century, there is no mention of Portuguese military intentions."
+    },
+    { 
+      id: 6, 
+      type: QuestionType.TFNG, 
+      text: "In the 19th century, Ascension Island acted as an important port for naval supplies.", 
+      correctAnswer: "TRUE",
+      answerLocation: "Paragraph 3, lines 2-3",
+      synonyms: ["naval", "British", "supplies"],
+      explanation: "The passage states that by the early 19th century, Ascension 'had become a vital strategic base for the British military' and was 'a thriving waystation providing much needed provisions for British ships.'"
+    },
+    { 
+      id: 7, 
+      type: QuestionType.TFNG, 
+      text: "The British imported fresh water to Ascension Island from southern Africa.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 3, lines 3-5",
+      synonyms: ["water", "imports", "fresh water"],
+      explanation: "The passage mentions the problem of fresh water supply but does not state that water was imported from southern Africa. It discusses trees being planted to reduce evaporation instead."
+    },
+    { 
+      id: 8, 
+      type: QuestionType.TFNG, 
+      text: "When it rained on Ascension Island, the water quickly dried up.", 
+      correctAnswer: "TRUE",
+      answerLocation: "Paragraph 3, lines 4-5",
+      synonyms: ["rain", "evaporation", "arid"],
+      explanation: "The passage states that 'the little rain that did fall swiftly disappeared in the hot environment' due to the lack of trees."
+    },
+    { id: 9, type: QuestionType.FILL_GAPS, text: "before his 1836 visit, Darwin had limited ............. of what he might find", correctAnswer: "expectations", placeholder: "9.", answerLocation: "Paragraph 4, lines 3-4", synonyms: ["expectations", "anticipations", "predictions"], explanation: "Darwin later admitted that his expectations of Ascension were low, and it 'cannot have appeared to be a very promising place.'" },
+    { id: 10, type: QuestionType.FILL_GAPS, text: "after his arrival, Darwin saw the ............. of the island and so devised a plan", correctAnswer: "potential", placeholder: "10.", answerLocation: "Paragraph 5, lines 1-2", synonyms: ["possibility", "promise", "opportunity"], explanation: "Darwin became excited by what he considered to be Ascension's potential, encountering volcanic cones and planning how to transform the barren landscape." },
+    { id: 11, type: QuestionType.FILL_GAPS, text: "on an expedition to explore the area around ............. , Hooker visited Ascension", correctAnswer: "Antarctica", placeholder: "11.", answerLocation: "Paragraph 6, lines 1-2", synonyms: ["Antarctic region", "polar area"], explanation: "Hooker set off on a four-year journey around the icy polar region of Antarctica aboard HMS Erebus and HMS Terror." },
+    { id: 12, type: QuestionType.FILL_GAPS, text: "trees were planted on Ascension to lessen the ............. of rainwater", correctAnswer: "evaporation", placeholder: "12.", answerLocation: "Paragraph 7, lines 1-2", synonyms: ["water loss", "drying"], explanation: "Trees would provide shade, helping to reduce evaporation after rain, which was a major problem on the barren island." },
+    { id: 13, type: QuestionType.FILL_GAPS, text: "from the 1850s, plants were brought to Ascension from ............. around the world", correctAnswer: "gardens", placeholder: "13.", answerLocation: "Paragraph 8, lines 1-2", synonyms: ["botanical gardens", "plant collections"], explanation: "Ships arrived with trees selected from special gardens maintained by scientists in Europe, South Africa and South America." },
+    { id: 14, type: QuestionType.FILL_GAPS, text: "the cloud forest traps moisture contained in the ............. which blows off the ocean", correctAnswer: "mist", placeholder: "14.", answerLocation: "Paragraph 9, lines 1-2", synonyms: ["sea mist", "fog", "clouds"], explanation: "Green Mountain is described as a 'cloud forest' where trees capture sea mist, creating dampness on this essentially dry island." },
+    { id: 15, type: QuestionType.FILL_GAPS, text: "the cloud forest is a successful man-made .............", correctAnswer: "ecosystem", placeholder: "15.", answerLocation: "Paragraph 9, lines 3-4", synonyms: ["environment", "habitat", "biological system"], explanation: "The cloud forest is described as a fully functioning, but totally artificial ecosystem created in a matter of decades." },
+    { id: 16, type: QuestionType.FILL_GAPS, text: "According to Dr Dave Wilkinson, the ideas learned from Ascension may be applicable to life in future human ............. on Mars.", correctAnswer: "colonies", placeholder: "16.", answerLocation: "Paragraph 10, lines 4-5", synonyms: ["settlements", "outposts", "habitations"], explanation: "Dr Wilkinson suggested that the Ascension experiment principles could one day be used to transform Mars to make it sustainable for human colonies." }
   ],
   'r-beatrix-potter': [
-    { id: 1, type: QuestionType.TFNG, text: "The Tale of Peter Rabbit was Beatrix Potter's first published book.", correctAnswer: "FALSE" },
-    { id: 2, type: QuestionType.TFNG, text: "Beatrix Potter was educated at a traditional school.", correctAnswer: "FALSE" },
-    { id: 3, type: QuestionType.TFNG, text: "Beatrix Potter kept a diary in a secret code as a teenager.", correctAnswer: "TRUE" },
-    { id: 4, type: QuestionType.TFNG, text: "Beatrix Potter received formal art training at a prestigious academy.", correctAnswer: "FALSE" },
-    { id: 5, type: QuestionType.TFNG, text: "Beatrix Potter was interested in studying fungi scientifically.", correctAnswer: "TRUE" },
-    { id: 6, type: QuestionType.TFNG, text: "Beatrix Potter married early in her twenties.", correctAnswer: "FALSE" },
-    { id: 7, type: QuestionType.TFNG, text: "The Tale of Peter Rabbit was initially rejected by publishers.", correctAnswer: "TRUE" },
-    { id: 8, type: QuestionType.TFNG, text: "Norman Warne was the oldest brother in the publishing company.", correctAnswer: "FALSE" },
-    { id: 9, type: QuestionType.FILL_GAPS, text: "Beatrix Potter was born in London in .............", correctAnswer: "1866", placeholder: "9." },
-    { id: 10, type: QuestionType.FILL_GAPS, text: "As a child, Beatrix Potter kept many animals including rabbits, frogs and .............", correctAnswer: "bats", placeholder: "10." },
-    { id: 11, type: QuestionType.FILL_GAPS, text: "Beatrix Potter wanted to study at ............. in London but was rejected because of her gender.", correctAnswer: "Kew", placeholder: "11." },
-    { id: 12, type: QuestionType.FILL_GAPS, text: "Beatrix Potter remained ............. throughout her life.", correctAnswer: "single", placeholder: "12." },
-    { id: 13, type: QuestionType.FILL_GAPS, text: "Beatrix Potter moved to the ............. in northern England after Warne's death.", correctAnswer: "Lake District", placeholder: "13." },
-    { id: 14, type: QuestionType.FILL_GAPS, text: "Beatrix Potter left over 4,000 acres of land to the .............", correctAnswer: "National Trust", placeholder: "14." }
+    { 
+      id: 1, 
+      type: QuestionType.TFNG, 
+      text: "The Tale of Peter Rabbit was Beatrix Potter's first published book.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 5, lines 1-2",
+      synonyms: ["first book", "initial publication", "debut"],
+      explanation: "For several years, Potter tried to get her first children's book, The Tale of Peter Rabbit, published, implying it was not her first attempt."
+    },
+    { 
+      id: 2, 
+      type: QuestionType.TFNG, 
+      text: "Beatrix Potter was educated at a traditional school.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 2, lines 1-2",
+      synonyms: ["education", "schooling", "formal education"],
+      explanation: "Potter was educated in her parents' house by a governess, not at a traditional school."
+    },
+    { 
+      id: 3, 
+      type: QuestionType.TFNG, 
+      text: "Beatrix Potter kept a diary in a secret code as a teenager.", 
+      correctAnswer: "TRUE",
+      answerLocation: "Paragraph 2, lines 4-6",
+      synonyms: ["diary", "secret code", "journal"],
+      explanation: "When Beatrix was 15, she began to keep a diary written in a secret code of her own invention."
+    },
+    { 
+      id: 4, 
+      type: QuestionType.TFNG, 
+      text: "Beatrix Potter received formal art training at a prestigious academy.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 3, lines 1-2",
+      synonyms: ["art education", "formal training", "art school"],
+      explanation: "Potter was a naturally gifted artist and with the aid of some art lessons learnt the technical side of drawing, but did not attend a prestigious academy."
+    },
+    { 
+      id: 5, 
+      type: QuestionType.TFNG, 
+      text: "Beatrix Potter was interested in studying fungi scientifically.", 
+      correctAnswer: "TRUE",
+      answerLocation: "Paragraph 3, lines 5-7",
+      synonyms: ["mycology", "fungi study", "scientific interest"],
+      explanation: "Potter was interested in natural history and achieved respect from the scientific establishment for her illustrations and contribution to mycology, the study of fungi."
+    },
+    { 
+      id: 6, 
+      type: QuestionType.TFNG, 
+      text: "Beatrix Potter married early in her twenties.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 4, lines 1-3",
+      synonyms: ["marriage", "married life", "spouse"],
+      explanation: "When Potter was in her early 20s, her parents tried to arrange a partner, but she turned them all down and remained single throughout her life."
+    },
+    { 
+      id: 7, 
+      type: QuestionType.TFNG, 
+      text: "The Tale of Peter Rabbit was initially rejected by publishers.", 
+      correctAnswer: "TRUE",
+      answerLocation: "Paragraph 5, lines 1-2",
+      synonyms: ["rejection", "publishing", "initial failure"],
+      explanation: "Her initial attempts to get The Tale of Peter Rabbit published proved unsuccessful, but she persevered and eventually it was accepted."
+    },
+    { 
+      id: 8, 
+      type: QuestionType.TFNG, 
+      text: "Norman Warne was the oldest brother in the publishing company.", 
+      correctAnswer: "FALSE",
+      answerLocation: "Paragraph 5, lines 3-5",
+      synonyms: ["Warne brothers", "publishing family", "Norman Warne"],
+      explanation: "The project was given to the youngest brother in the family company, Norman Warne, for his first project as a kind of test."
+    },
+    { id: 9, type: QuestionType.FILL_GAPS, text: "Beatrix Potter was born in London in .............", correctAnswer: "1866", placeholder: "9.", answerLocation: "Paragraph 2, line 1", synonyms: ["birth year", "year of birth", "when born"], explanation: "Born to a comfortable middle-class family in London in 1866." },
+    { id: 10, type: QuestionType.FILL_GAPS, text: "As a child, Beatrix Potter kept many animals including rabbits, frogs and .............", correctAnswer: "bats", placeholder: "10.", answerLocation: "Paragraph 3, line 2", synonyms: ["pets", "animals", "creatures"], explanation: "During her childhood, she looked after many animals, such as rabbits, frogs, and even bats." },
+    { id: 11, type: QuestionType.FILL_GAPS, text: "Beatrix Potter wanted to study at ............. in London but was rejected because of her gender.", correctAnswer: "Kew", placeholder: "11.", answerLocation: "Paragraph 3, lines 5-6", synonyms: ["botanical gardens", "Royal Botanic Gardens"], explanation: "An uncle tried to help her become a student at the Royal Botanic Gardens at Kew, but she was rejected because of her gender." },
+    { id: 12, type: QuestionType.FILL_GAPS, text: "Beatrix Potter remained ............. throughout her life.", correctAnswer: "single", placeholder: "12.", answerLocation: "Paragraph 4, line 3", synonyms: ["unmarried", "never married"], explanation: "Thus, unusually for British women of those times, she remained single and lived in her parents' home." },
+    { id: 13, type: QuestionType.FILL_GAPS, text: "Beatrix Potter moved to the ............. in northern England after Warne's death.", correctAnswer: "Lake District", placeholder: "13.", answerLocation: "Paragraph 6, lines 1-2", synonyms: ["countryside", "rural area", "England"], explanation: "After Warne's death, Potter moved to the Lake District in northern England." },
+    { id: 14, type: QuestionType.FILL_GAPS, text: "Beatrix Potter left over 4,000 acres of land to the .............", correctAnswer: "National Trust", placeholder: "14.", answerLocation: "Paragraph 6, lines 6-7", synonyms: ["conservation organization", "heritage trust", "land trust"], explanation: "On her death, she left over 4,000 acres to the National Trust, an organisation which protects historical buildings and areas of countryside in England." }
   ],
   'r-bondi': [
     { id: 1, type: QuestionType.TFNG, text: "Australians have always valued Bondi Beach as a national treasure.", correctAnswer: "FALSE" },

@@ -22,6 +22,8 @@ export interface Question {
   options?: { label: string; value: string }[];
   correctAnswer: string | string[];
   explanation?: string;
+  answerLocation?: string;  // e.g., "Paragraph 2, line 3"
+  synonyms?: string[];      // e.g., ["synonym1", "synonym2"]
   placeholder?: string;
   group?: string;
 }

@@ -231,24 +231,18 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
         <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 transition-colors ${isDarkMode ? 'bg-white/5 text-[#F15A24]' : 'bg-slate-100 text-slate-500'}`}>{q.id}</span>
         <div className="flex-1">
           <p className={`text-[15px] mb-4 font-bold leading-relaxed ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{q.text}</p>
-          <div className="flex flex-wrap gap-2">
+          <select
+            value={(userAnswers[q.id] as string) || ''}
+            onChange={(e) => onAnswerChange(q.id, e.target.value)}
+            className={`w-full p-3 rounded-xl border outline-none transition-all text-sm appearance-none font-medium ${
+              isDarkMode ? 'bg-[#020617]/50 border-white/5 text-white focus:border-[#F15A24]' : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-800'
+            }`}
+          >
+            <option value="" className={isDarkMode ? 'bg-slate-900' : ''}>Select paragraph...</option>
             {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'].map(val => (
-              <button
-                key={val}
-                onClick={() => onAnswerChange(q.id, val)}
-                className={`
-                  w-10 h-10 rounded-xl border font-bold transition-all text-sm
-                  ${userAnswers[q.id] === val 
-                    ? isDarkMode ? 'bg-[#F15A24] text-white border-[#F15A24] shadow-lg shadow-[#F15A24]/20' : 'bg-blue-800 text-white border-blue-800' 
-                    : isDarkMode
-                      ? 'bg-[#020617]/50 text-slate-400 border-white/5 hover:border-white/20'
-                      : 'bg-slate-50 text-slate-500 border-slate-200 hover:border-slate-400'}
-                `}
-              >
-                {val}
-              </button>
+              <option key={val} value={val} className={isDarkMode ? 'bg-slate-900' : ''}>{val}</option>
             ))}
-          </div>
+          </select>
         </div>
       </div>
     </div>
@@ -262,7 +256,7 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
     sections.push({ id: 's2', title: 'Questions 7-9', instruction: 'Complete the sentences below with NO MORE THAN ONE WORD from the passage.', qs: qRange(7, 9), type: 'input' });
     sections.push({ id: 's3', title: 'Questions 10-13', instruction: 'Do the following statements agree with the information given in Reading Passage 1?', qs: qRange(10, 13), type: 'tfng' });
   } else if (passageTitle === "Answers Underground") {
-    sections.push({ id: 's1', title: 'Questions 1-6', instruction: 'Look at the following issues (Questions 1-6) and the list of people and organisations below. Match each issue with the correct person or organisation, A-F.', options: ['A - Scott Klara', 'B - Intergovernmental Panel on Climate Change', 'C - International Energy Agency', 'D - Klaus Lackner', 'E - David Hawkins', 'F - World Wide Fund for Nature Australia'], qs: qRange(1, 6), type: 'classification', note: 'You may use any letter more than once.' });
+    sections.push({ id: 's1', title: 'Questions 1-6', instruction: 'Look at the following issues (Questions 1-6) and the list of people and organisations below. Match each issue with the correct person or organisation, A-F.', options: ['A - Scott Klara', 'B - Intergovernmental Panel on Climate Change', 'C - International Energy Agency', 'D - Klaus Lackner', 'E - David Hawkins', 'F - World Wide Fund for Nature Australia'], qs: qRange(1, 6), type: 'select', note: 'You may use any letter more than once.' });
     sections.push({ id: 's2', title: 'Questions 7-9', instruction: 'Reading Passage 1 has ten paragraphs, A-J. Which paragraph contains the following information?', qs: qRange(7, 9), type: 'paragraph' });
     sections.push({ id: 's3', title: 'Questions 10-13', instruction: 'Do the following statements agree with the information given in Reading Passage 1?', qs: qRange(10, 13), type: 'tfng' });
   } else if (passageTitle === "An early cultural tourist") {
@@ -315,7 +309,12 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
               <div className="mb-6">
                 <h4 className={`text-[11px] font-black uppercase tracking-[0.2em] mb-3 transition-colors duration-500 ${isDarkMode ? 'text-[#F15A24]' : 'text-blue-700'}`}>{section.title}</h4>
                 <div className={`p-6 rounded-[24px] border transition-all duration-500 ${isDarkMode ? 'bg-slate-800/60 border-white/5 shadow-xl' : 'bg-white border-slate-200 shadow-sm'}`}>
-                  <p className={`text-[15px] font-bold ${section.options ? 'mb-4' : ''} transition-colors duration-500 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{section.instruction}</p>
+                  <p className={`text-[15px] font-bold mb-4 transition-colors duration-500 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{section.instruction}</p>
+                  {section.note && (
+                    <p className={`mb-4 text-xs font-semibold transition-colors duration-500 ${isDarkMode ? 'text-[#F15A24]' : 'text-blue-700'}`}>
+                      <span className={`font-black ${isDarkMode ? 'text-[#F15A24]' : 'text-blue-700'}`}>NB</span> {section.note}
+                    </p>
+                  )}
                   {section.options && (<div className={`p-4 rounded-xl text-xs font-medium space-y-2 transition-colors duration-500 ${isDarkMode ? 'bg-[#020617]/60 text-slate-400' : 'bg-slate-50 text-slate-500'}`}>{section.options.map((opt, idx) => <p key={idx}>{opt}</p>)}</div>)}
                 </div>
               </div>
