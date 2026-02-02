@@ -11,10 +11,11 @@ interface HomePageProps {
   onGoPassage1: () => void;
   onGoPassage2: () => void;
   onGoPassage3: () => void;
+  onGoArticle: () => void;
   initialView?: HomeView;
 }
 
-type HomeView = 'modalities' | 'reading-modalities' | 'reading' | 'listening' | 'full';
+type HomeView = 'modalities' | 'reading-modalities' | 'reading' | 'listening' | 'full' | 'article';
 
 const HomePage: React.FC<HomePageProps> = ({ 
   theme, 
@@ -24,6 +25,7 @@ const HomePage: React.FC<HomePageProps> = ({
   onGoPassage1,
   onGoPassage2,
   onGoPassage3,
+  onGoArticle,
   initialView
 }) => {
   const [currentView, setCurrentView] = useState<HomeView>(initialView || 'modalities');
@@ -181,6 +183,43 @@ const HomePage: React.FC<HomePageProps> = ({
         <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Full Mock</h3>
         <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>A simulation of Reading and Listening</p>
         <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Take Exam <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </button>
+
+      <button onClick={onGoArticle} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+        <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+          {/* Modern Cartoon Article Icon */}
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Document base */}
+            <rect x="10" y="8" width="44" height="52" rx="4" fill="#FAFAFA" stroke="#E0E0E0" strokeWidth="2"/>
+            {/* Document corner fold */}
+            <path d="M44 8V16C44 18.2091 45.7909 20 48 20H54" stroke="#E0E0E0" strokeWidth="2" fill="none"/>
+            {/* Lines of text */}
+            <line x1="18" y1="22" x2="46" y2="22" stroke="#CBD5E1" strokeWidth="3" strokeLinecap="round"/>
+            <line x1="18" y1="30" x2="46" y2="30" stroke="#CBD5E1" strokeWidth="3" strokeLinecap="round"/>
+            <line x1="18" y1="38" x2="40" y2="38" stroke="#CBD5E1" strokeWidth="3" strokeLinecap="round"/>
+            <line x1="18" y1="46" x2="46" y2="46" stroke="#CBD5E1" strokeWidth="3" strokeLinecap="round"/>
+            <line x1="18" y1="54" x2="34" y2="54" stroke="#CBD5E1" strokeWidth="3" strokeLinecap="round"/>
+            {/* Character reading */}
+            <circle cx="56" cy="48" r="12" fill="#FFE0B2"/>
+            {/* Character hair */}
+            <path d="M46 44C46 38 50 34 56 34C62 34 66 38 66 44" stroke="#5D4037" strokeWidth="3" strokeLinecap="round" fill="none"/>
+            {/* Character eyes - reading */}
+            <ellipse cx="52" cy="46" rx="3" ry="4" fill="#fff"/>
+            <ellipse cx="60" cy="46" rx="3" ry="4" fill="#fff"/>
+            <circle cx="52" cy="47" r="2" fill="#333"/>
+            <circle cx="60" cy="47" r="2" fill="#333"/>
+            {/* Glasses */}
+            <circle cx="52" cy="46" r="5" stroke="#333" strokeWidth="1.5" fill="none"/>
+            <circle cx="60" cy="46" r="5" stroke="#333" strokeWidth="1.5" fill="none"/>
+            <line x1="57" y1="46" x2="55" y2="46" stroke="#333" strokeWidth="2"/>
+            {/* Sparkle around article */}
+            <path d="M8 20L9 22L11 22L9.5 23.5L10 25.5L8 24L6 25.5L6.5 23.5L5 22L7 22Z" fill="#FFD54F"/>
+            <path d="M56 8L57 10L59 10L57.5 11.5L58 13.5L56 12L54 13.5L54.5 11.5L53 10L55 10Z" fill="#4DB6AC"/>
+          </svg>
+        </div>
+        <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Articles</h3>
+        <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Reading practice with vocabulary</p>
+        <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Read Articles <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </button>
     </div>
   );

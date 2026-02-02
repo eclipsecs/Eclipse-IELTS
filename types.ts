@@ -57,3 +57,36 @@ export interface ReadingPassageData {
   content: string[];
   questions: Question[];
 }
+
+export interface VocabularyItem {
+  id: number;
+  word: string;
+  definition: string;
+  partOfSpeech: string;
+  example: string;
+  synonyms?: string[];
+  antonyms?: string[];
+}
+
+export interface ArticlePracticeQuestion {
+  id: number;
+  type: 'multiple_choice' | 'true_false' | 'fill_gap' | 'short_answer' | 'summary';
+  text: string;
+  options?: { label: string; value: string }[];
+  correctAnswer: string | string[];
+  explanation?: string;
+  points: number;
+}
+
+export interface ArticleData {
+  id: string;
+  title: string;
+  author: string;
+  source: string;
+  date: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  content: string;
+  vocabulary: VocabularyItem[];
+  practice: ArticlePracticeQuestion[];
+  readingTime: number; // in minutes
+}

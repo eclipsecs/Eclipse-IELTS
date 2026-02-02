@@ -315,3 +315,38 @@ body {
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* ============================================
+   FLIP CARD ANIMATIONS FOR VOCABULARY
+   ============================================ */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.relative.h-48 {
+  cursor: pointer;
+}
+
+.relative.h-48:hover .relative.w-full.h-full {
+  transform: rotateY(180deg);
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.absolute.inset-0 {
+  backface-visibility: hidden;
+}
+
+.absolute.inset-0.rotate-y-180 {
+  backface-visibility: hidden;
+}
