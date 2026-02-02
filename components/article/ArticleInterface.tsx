@@ -144,34 +144,54 @@ const ArticleInterface: React.FC<ArticleInterfaceProps> = ({
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-3">
         <button
           onClick={() => setCurrentView('vocabulary')}
-          className={`flex-1 min-w-[200px] p-6 rounded-[24px] border-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(241,90,36,0.15)] ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-[#1D1D4B]'} text-left group`}
+          className={`flex-1 min-w-[160px] p-4 rounded-[24px] border-3 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(241,90,36,0.2)] cartoon-button ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-[#1D1D4B]'} text-left group`}
         >
-          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${isDarkMode ? 'bg-[#252525] group-hover:bg-[#F15A24]/20' : 'bg-slate-100 group-hover:bg-[#1D1D4B]/10'} transition-colors`}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={isDarkMode ? '#F15A24' : '#1D1D4B'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3 cartoon-icon ${isDarkMode ? 'bg-[#252525] group-hover:bg-[#F15A24]/30' : 'bg-slate-100 group-hover:bg-[#FFD700]/30'} transition-colors`}>
+            {/* Colorful Cartoon Book Icon */}
+            <svg width="28" height="28" viewBox="0 0 48 48" fill="none" className="cartoon-svg">
+              {/* Book cover with colorful gradient effect */}
+              <rect x="8" y="6" width="32" height="36" rx="4" fill="#FF6B35" stroke="#1D1D4B" strokeWidth="2.5" strokeLinejoin="round"/>
+              <rect x="10" y="8" width="28" height="32" rx="2" fill="#FFD700"/>
+              {/* Book spine */}
+              <rect x="8" y="6" width="6" height="36" rx="2" fill="#1D1D4B"/>
+              {/* Pages */}
+              <rect x="16" y="12" width="20" height="24" rx="1" fill="white"/>
+              <path d="M18 16H34M18 22H34M18 28H28" stroke="#1D1D4B" strokeWidth="2" strokeLinecap="round"/>
+              {/* Bookmark ribbon */}
+              <path d="M28 8V28L32 24L28 20" fill="#F15A24" stroke="#1D1D4B" strokeWidth="1.5"/>
             </svg>
           </div>
-          <h3 className={`text-xl font-['Fredoka_One'] mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`} style={{ fontFamily: 'Fredoka One, cursive' }}>Vocabulary</h3>
-          <p className={`text-sm font-['Fredoka'] ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`} style={{ fontFamily: 'Fredoka, Balsamiq Sans, sans-serif' }}>{article?.vocabulary.length} words to learn</p>
+          <h3 className={`text-lg font-['Fredoka_One'] ${isDarkMode ? 'text-white' : 'text-slate-900'}`} style={{ fontFamily: 'Fredoka One, cursive' }}>Vocabulary</h3>
+          <p className={`text-xs font-['Fredoka'] ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`} style={{ fontFamily: 'Fredoka, Balsamiq Sans, sans-serif' }}>{article?.vocabulary.length} words</p>
         </button>
 
         <button
           onClick={() => setCurrentView('practice')}
-          className={`flex-1 min-w-[200px] p-6 rounded-[24px] border-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(241,90,36,0.15)] ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-[#1D1D4B]'} text-left group`}
+          className={`flex-1 min-w-[160px] p-4 rounded-[24px] border-3 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(241,90,36,0.2)] cartoon-button ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-[#1D1D4B]'} text-left group`}
         >
-          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${isDarkMode ? 'bg-[#252525] group-hover:bg-[#F15A24]/20' : 'bg-slate-100 group-hover:bg-[#1D1D4B]/10'} transition-colors`}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={isDarkMode ? '#F15A24' : '#1D1D4B'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-              <line x1="12" y1="17" x2="12.01" y2="17"/>
+          <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3 cartoon-icon ${isDarkMode ? 'bg-[#252525] group-hover:bg-[#F15A24]/30' : 'bg-slate-100 group-hover:bg-[#87CEEB]/30'} transition-colors`}>
+            {/* Colorful Cartoon Pencil Writing on Paper Icon - Centered */}
+            <svg width="28" height="28" viewBox="0 0 48 48" fill="none" className="cartoon-svg">
+              {/* Paper - centered */}
+              <rect x="10" y="10" width="28" height="28" rx="2" fill="white" stroke="#1D1D4B" strokeWidth="2" strokeLinejoin="round"/>
+              {/* Written lines on paper */}
+              <path d="M14 16H34" stroke="#1D1D4B" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M14 20H34" stroke="#1D1D4B" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M14 24H30" stroke="#1D1D4B" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M14 28H26" stroke="#1D1D4B" strokeWidth="1.5" strokeLinecap="round"/>
+              {/* Pencil - diagonal writing position */}
+              <rect x="28" y="20" width="6" height="18" rx="1" fill="#FFD700" stroke="#1D1D4B" strokeWidth="1.5" strokeLinejoin="round" transform="rotate(45 31 29)"/>
+              {/* Pencil tip */}
+              <path d="M33 36L30 41H38L35 36Z" fill="#F15A24" stroke="#1D1D4B" strokeWidth="1.5" strokeLinejoin="round"/>
+              {/* Pencil eraser */}
+              <rect x="29" y="17" width="4" height="3" rx="0.5" fill="#87CEEB" stroke="#1D1D4B" strokeWidth="1.5" strokeLinejoin="round"/>
             </svg>
           </div>
-          <h3 className={`text-xl font-['Fredoka_One'] mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`} style={{ fontFamily: 'Fredoka One, cursive' }}>Practice</h3>
-          <p className={`text-sm font-['Fredoka'] ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`} style={{ fontFamily: 'Fredoka, Balsamiq Sans, sans-serif' }}>{article?.practice.length} questions</p>
+          <h3 className={`text-lg font-['Fredoka_One'] ${isDarkMode ? 'text-white' : 'text-slate-900'}`} style={{ fontFamily: 'Fredoka One, cursive' }}>Practice</h3>
+          <p className={`text-xs font-['Fredoka'] ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`} style={{ fontFamily: 'Fredoka, Balsamiq Sans, sans-serif' }}>{article?.practice.length} questions</p>
         </button>
       </div>
     </div>
