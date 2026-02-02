@@ -12,8 +12,8 @@ export enum QuestionType {
 }
 
 export type Theme = 'light' | 'dark';
-export type AppView = 'home' | 'test' | 'roadmap' | 'passage1' | 'passage2' | 'passage3';
-export type TestCategory = 'reading' | 'listening' | 'writing' | 'full';
+export type AppView = 'home' | 'test' | 'roadmap' | 'passage1' | 'passage2' | 'passage3' | 'article';
+export type TestCategory = 'reading' | 'listening' | 'writing' | 'full' | 'article';
 
 export interface Question {
   id: number;
