@@ -12,10 +12,11 @@ interface HomePageProps {
   onGoPassage2: () => void;
   onGoPassage3: () => void;
   onGoArticle: () => void;
+  onGoResources: () => void;
   initialView?: HomeView;
 }
 
-type HomeView = 'modalities' | 'reading-modalities' | 'reading' | 'listening' | 'full' | 'article';
+type HomeView = 'modalities' | 'reading-modalities' | 'reading' | 'listening' | 'full' | 'article' | 'resources';
 
 const HomePage: React.FC<HomePageProps> = ({ 
   theme, 
@@ -26,6 +27,7 @@ const HomePage: React.FC<HomePageProps> = ({
   onGoPassage2,
   onGoPassage3,
   onGoArticle,
+  onGoResources,
   initialView
 }) => {
   const [currentView, setCurrentView] = useState<HomeView>(initialView || 'modalities');
@@ -235,6 +237,40 @@ const HomePage: React.FC<HomePageProps> = ({
         <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Articles</h3>
         <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Explore articles</p>
         <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Read Articles <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </button>
+
+      <button onClick={onGoResources} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+        <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+          {/* Modern Cartoon Resources Icon */}
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Book base */}
+            <rect x="8" y="10" width="48" height="44" rx="4" fill="#26A69A"/>
+            {/* Book pages */}
+            <rect x="12" y="14" width="40" height="36" rx="2" fill="#E0F2F1"/>
+            {/* Book spine */}
+            <rect x="28" y="10" width="8" height="44" fill="#1A5D5A"/>
+            {/* Bookmark ribbon */}
+            <path d="M32 10V28" stroke="#FF7043" strokeWidth="4"/>
+            <path d="M32 28L28 24H36L32 28Z" fill="#FF7043"/>
+            {/* Text lines on left page */}
+            <line x1="16" y1="20" x2="24" y2="20" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="16" y1="26" x2="24" y2="26" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="16" y1="32" x2="22" y2="32" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+            {/* Text lines on right page */}
+            <line x1="40" y1="20" x2="48" y2="20" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="40" y1="26" x2="48" y2="26" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="40" y1="32" x2="46" y2="32" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+            {/* Video symbol */}
+            <circle cx="32" cy="44" r="8" fill="#FFCA28"/>
+            <path d="M30 40V48L37 44L30 40Z" fill="#333"/>
+            {/* Sparkle decorations */}
+            <path d="M10 6L11 8L13 8L11.5 9.5L12 11.5L10 10L8 11.5L8.5 9.5L7 8L9 8Z" fill="#FFCA28"/>
+            <path d="M54 6L55 8L57 8L55.5 9.5L56 11.5L54 10L52 11.5L52.5 9.5L51 8L53 8Z" fill="#26A69A"/>
+          </svg>
+        </div>
+        <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Resources</h3>
+        <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Books, videos & study materials</p>
+        <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Browse Resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </button>
     </div>
   );
@@ -465,6 +501,77 @@ const HomePage: React.FC<HomePageProps> = ({
       </div>
     );
   };
+
+  const renderResourcesView = () => (
+    <div className="animate-in fade-in slide-in-from-right-8 duration-500 w-full">
+      <div className="flex flex-col items-center text-center mb-10">
+        <div className="flex items-center justify-center gap-4 mb-4">
+          <button onClick={handleBack} className={`p-3 rounded-2xl transition-all border shadow-sm ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] text-white hover:border-[#F15A24]' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+          <h2 className="text-3xl font-black uppercase tracking-tight">Learning <span className="text-[#F15A24]">Resources</span></h2>
+        </div>
+        <p className={isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}>Explore books, videos, and study materials</p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Books Card */}
+        <div className={`group relative p-8 rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
+          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
+            <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="10" width="48" height="44" rx="4" fill="#26A69A"/>
+              <rect x="12" y="14" width="40" height="36" rx="2" fill="#E0F2F1"/>
+              <rect x="28" y="10" width="8" height="44" fill="#1A5D5A"/>
+              <line x1="16" y1="22" x2="26" y2="22" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="16" y1="28" x2="26" y2="28" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="16" y1="34" x2="24" y2="34" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="38" y1="22" x2="48" y2="22" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="38" y1="28" x2="48" y2="28" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="38" y1="34" x2="46" y2="34" stroke="#B2DFDB" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </div>
+          <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-40'}`}>STUDY MATERIALS</span>
+          <h3 className={`text-2xl font-black mt-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Books</h3>
+          <p className={`text-sm mt-3 ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>Recommended IELTS preparation books and study guides</p>
+          <div className={`inline-flex items-center gap-2 mt-4 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Browse Books <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+
+        {/* Videos Card */}
+        <div className={`group relative p-8 rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
+          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
+            <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="16" width="48" height="32" rx="4" fill="#E53935"/>
+              <rect x="10" y="18" width="44" height="28" rx="2" fill="#1A1A1A"/>
+              <circle cx="32" cy="32" r="10" fill="#FF7043"/>
+              <path d="M30 28V36L36 32L30 28Z" fill="#1A1A1A"/>
+              <circle cx="48" cy="14" r="4" fill="#FFCA28"/>
+            </svg>
+          </div>
+          <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-40'}`}>VIDEO CONTENT</span>
+          <h3 className={`text-2xl font-black mt-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Videos</h3>
+          <p className={`text-sm mt-3 ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>Educational videos, tutorials, and lecture recordings</p>
+          <div className={`inline-flex items-center gap-2 mt-4 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Watch Videos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+
+        {/* More Resources Card */}
+        <div className={`group relative p-8 rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
+          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
+            <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="24" fill="#5C6BC0"/>
+              <circle cx="32" cy="32" r="18" fill="#E8EAF6"/>
+              <circle cx="32" cy="32" r="10" fill="#5C6BC0"/>
+              <circle cx="32" cy="32" r="4" fill="#1A237E"/>
+              <path d="M32 8V16" stroke="#5C6BC0" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M32 48V56" stroke="#5C6BC0" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M8 32H16" stroke="#5C6BC0" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M48 32H56" stroke="#5C6BC0" strokeWidth="3" strokeLinecap="round"/>
+            </svg>
+          </div>
+          <span className={`text-[11px] font-black uppercase tracking-[0.2em] ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-40'}`}>COMING SOON</span>
+          <h3 className={`text-2xl font-black mt-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>More</h3>
+          <p className={`text-sm mt-3 ${isDarkMode ? 'text-[#b0b0b0]' : 'text-slate-500'}`}>Additional resources including podcasts, websites, and tools</p>
+          <div className={`inline-flex items-center gap-2 mt-4 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Coming Soon <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'bg-[#121212] text-white' : 'bg-[#F8FAFC] text-slate-900'}`}>
