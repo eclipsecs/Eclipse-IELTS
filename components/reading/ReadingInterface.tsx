@@ -225,12 +225,45 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
     </div>
   );
 
+  const renderParagraphMatch = (q: Question) => (
+    <div key={q.id} id={`q-${q.id}`} className={`mb-4 p-6 rounded-[24px] border transition-all ${isDarkMode ? 'bg-slate-800/40 border-white/5 hover:border-white/10' : 'bg-white border-slate-200 shadow-sm'}`}>
+      <div className="flex gap-4">
+        <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 transition-colors ${isDarkMode ? 'bg-white/5 text-[#F15A24]' : 'bg-slate-100 text-slate-500'}`}>{q.id}</span>
+        <div className="flex-1">
+          <p className={`text-[15px] mb-4 font-bold leading-relaxed ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{q.text}</p>
+          <div className="flex flex-wrap gap-2">
+            {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'].map(val => (
+              <button
+                key={val}
+                onClick={() => onAnswerChange(q.id, val)}
+                className={`
+                  w-10 h-10 rounded-xl border font-bold transition-all text-sm
+                  ${userAnswers[q.id] === val 
+                    ? isDarkMode ? 'bg-[#F15A24] text-white border-[#F15A24] shadow-lg shadow-[#F15A24]/20' : 'bg-blue-800 text-white border-blue-800' 
+                    : isDarkMode
+                      ? 'bg-[#020617]/50 text-slate-400 border-white/5 hover:border-white/20'
+                      : 'bg-slate-50 text-slate-500 border-slate-200 hover:border-slate-400'}
+                `}
+              >
+                {val}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   const sections = [];
   const qRange = (start: number, end: number) => (questions || []).filter(q => q.id >= start && q.id <= end);
 
   if (passageTitle === "Ambergris") {
     sections.push({ id: 's1', title: 'Questions 1-6', instruction: 'Classify the following information as referring to:', options: ['A - ambergris only', 'B - amber only', 'C - both ambergris and amber', 'D - neither ambergris nor amber'], qs: qRange(1, 6), type: 'classification' });
     sections.push({ id: 's2', title: 'Questions 7-9', instruction: 'Complete the sentences below with NO MORE THAN ONE WORD from the passage.', qs: qRange(7, 9), type: 'input' });
+    sections.push({ id: 's3', title: 'Questions 10-13', instruction: 'Do the following statements agree with the information given in Reading Passage 1?', qs: qRange(10, 13), type: 'tfng' });
+  } else if (passageTitle === "Answers Underground") {
+    sections.push({ id: 's1', title: 'Questions 1-6', instruction: 'Look at the following issues (Questions 1-6) and the list of people and organisations below. Match each issue with the correct person or organisation, A-F.', options: ['A - Scott Klara', 'B - Intergovernmental Panel on Climate Change', 'C - International Energy Agency', 'D - Klaus Lackner', 'E - David Hawkins', 'F - World Wide Fund for Nature Australia'], qs: qRange(1, 6), type: 'classification', note: 'You may use any letter more than once.' });
+    sections.push({ id: 's2', title: 'Questions 7-9', instruction: 'Reading Passage 1 has ten paragraphs, A-J. Which paragraph contains the following information?', qs: qRange(7, 9), type: 'paragraph' });
     sections.push({ id: 's3', title: 'Questions 10-13', instruction: 'Do the following statements agree with the information given in Reading Passage 1?', qs: qRange(10, 13), type: 'tfng' });
   } else if (passageTitle === "An early cultural tourist") {
     sections.push({ id: 's1', title: 'Questions 1-7', instruction: 'Do the following statements agree with the information given in Reading Passage 1?', qs: qRange(1, 7), type: 'tfng' });
@@ -292,6 +325,7 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
                   if (section.type === 'tfng') return renderRadioTFNG(q);
                   if (section.type === 'input') return renderInput(q);
                   if (section.type === 'select') return renderSelectEndings(q);
+                  if (section.type === 'paragraph') return renderParagraphMatch(q);
                   return null;
                 })}
               </div>
