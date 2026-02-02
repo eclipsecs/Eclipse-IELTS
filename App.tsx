@@ -15,6 +15,7 @@ import RoadmapPage from './components/roadmap/RoadmapPage';
 import Passage1 from './components/reading/Passage1';
 import Passage2 from './components/reading/Passage2';
 import Passage3 from './components/reading/Passage3';
+import ResourcesInterface from './components/resources/ResourcesInterface';
 
 const App: React.FC = () => {
   const [view, setView] = useState<AppView>('home');
@@ -123,17 +124,96 @@ const App: React.FC = () => {
 
   if (view === 'resources') {
     return (
-      <HomePage
+      <ResourcesInterface
         theme={state.theme}
         onToggleTheme={handleToggleTheme}
-        onSelectTest={handleSelectTest}
-        onGoRoadmap={() => setView('roadmap')}
-        onGoPassage1={() => setView('passage1')}
-        onGoPassage2={() => setView('passage2')}
-        onGoPassage3={() => setView('passage3')}
-        onGoArticle={() => setView('article')}
-        onGoResources={() => setView('resources')}
-        initialView="resources"
+        onGoHome={() => setView('home')}
+        onGoStudyMaterials={() => setView('study-materials')}
+        onGoPodcasts={() => setView('podcasts')}
+        onGoWebsites={() => setView('websites')}
+        onGoBooks={() => setView('books')}
+        onGoResourceArticles={() => setView('resource-articles')}
+        initialResourceView="main"
+      />
+    );
+  }
+
+  if (view === 'study-materials') {
+    return (
+      <ResourcesInterface
+        theme={state.theme}
+        onToggleTheme={handleToggleTheme}
+        onGoHome={() => setView('home')}
+        onGoStudyMaterials={() => setView('study-materials')}
+        onGoPodcasts={() => setView('podcasts')}
+        onGoWebsites={() => setView('websites')}
+        onGoBooks={() => setView('books')}
+        onGoResourceArticles={() => setView('resource-articles')}
+        initialResourceView="study-materials"
+      />
+    );
+  }
+
+  if (view === 'podcasts') {
+    return (
+      <ResourcesInterface
+        theme={state.theme}
+        onToggleTheme={handleToggleTheme}
+        onGoHome={() => setView('home')}
+        onGoStudyMaterials={() => setView('study-materials')}
+        onGoPodcasts={() => setView('podcasts')}
+        onGoWebsites={() => setView('websites')}
+        onGoBooks={() => setView('books')}
+        onGoResourceArticles={() => setView('resource-articles')}
+        initialResourceView="podcasts"
+      />
+    );
+  }
+
+  if (view === 'websites') {
+    return (
+      <ResourcesInterface
+        theme={state.theme}
+        onToggleTheme={handleToggleTheme}
+        onGoHome={() => setView('home')}
+        onGoStudyMaterials={() => setView('study-materials')}
+        onGoPodcasts={() => setView('podcasts')}
+        onGoWebsites={() => setView('websites')}
+        onGoBooks={() => setView('books')}
+        onGoResourceArticles={() => setView('resource-articles')}
+        initialResourceView="websites"
+      />
+    );
+  }
+
+  if (view === 'books') {
+    return (
+      <ResourcesInterface
+        theme={state.theme}
+        onToggleTheme={handleToggleTheme}
+        onGoHome={() => setView('home')}
+        onGoStudyMaterials={() => setView('study-materials')}
+        onGoPodcasts={() => setView('podcasts')}
+        onGoWebsites={() => setView('websites')}
+        onGoBooks={() => setView('books')}
+        onGoResourceArticles={() => setView('resource-articles')}
+        initialResourceView="books"
+      />
+    );
+  }
+
+  if (view === 'resource-articles') {
+    return (
+      <ResourcesInterface
+        theme={state.theme}
+        onToggleTheme={handleToggleTheme}
+        onGoHome={() => setView('home')}
+        onGoStudyMaterials={() => setView('study-materials')}
+        onGoPodcasts={() => setView('podcasts')}
+        onGoWebsites={() => setView('websites')}
+        onGoBooks={() => setView('books')}
+        onGoResourceArticles={() => setView('resource-articles')}
+        initialResourceView="articles"
       />
     );
   }
