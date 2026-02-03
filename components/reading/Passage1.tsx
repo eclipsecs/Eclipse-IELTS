@@ -52,7 +52,12 @@ const Passage1: React.FC<Passage1Props> = ({ theme, onToggleTheme, onSelectTest,
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {passage1Tests.map(test => (
-            <div key={test.id} onClick={() => test.isAvailable && onSelectTest(test)} className={`group relative p-8 rounded-[40px] border transition-all duration-500 overflow-hidden ${test.isAvailable ? (isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:-translate-y-2 cursor-pointer shadow-xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 hover:-translate-y-2 cursor-pointer shadow-lg') : 'opacity-40 grayscale cursor-not-allowed'}`}>
+            <div key={test.id} onClick={() => test.isAvailable && onSelectTest(test)} className={`group relative p-8 rounded-[40px] border transition-all duration-500 overflow-hidden ${test.isAvailable ? (isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:-translate-y-2 cursor-pointer shadow-xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 hover:-translate-y-2 cursor-pointer shadow-lg') : ''}`}>
+              {test.isAvailable ? null : (
+                <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/20 backdrop-blur-sm">
+                  <span className="px-6 py-3 bg-gradient-to-r from-[#F15A24] to-[#ff7b54] text-white text-sm font-black uppercase tracking-widest rounded-full shadow-2xl transform hover:scale-105 transition-transform duration-300">Coming Soon</span>
+                </div>
+              )}
               <div className="flex justify-between items-start mb-12">
                 <div className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest ${test.difficulty === 'Easy' ? 'bg-green-500/10 text-green-500' : test.difficulty === 'Medium' ? 'bg-orange-500/10 text-orange-500' : 'bg-red-500/10 text-red-500'}`}>{test.difficulty}</div>
               </div>

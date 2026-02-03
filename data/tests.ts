@@ -3,13 +3,13 @@ import { TestMeta } from '../types';
 
 export const AVAILABLE_TESTS: TestMeta[] = [
   { id: 'r-p1-underground', title: 'Answers Underground', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: true },
-  { id: 'r-p1', title: 'Ambergris: What is it?', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Easy', isAvailable: true },
-  { id: 'r-cultural-tourist', title: 'An early cultural tourist', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: true },
-  { id: 'r-ascension', title: 'The Ascension Island experiment', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: true },
-  { id: 'r-beatrix-potter', title: 'The life of Beatrix Potter', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: true },
-  { id: 'r-bondi', title: 'Bondi: Australia\'s most famous beach', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: true },
-  { id: 'r-prosopagnosia', title: 'Prosopagnosia: Face Blindness', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: true },
-  { id: 'r-triumph-city', title: 'Triumph of the City: Book Review', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: true },
+  { id: 'r-p1', title: 'Ambergris: What is it?', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Easy', isAvailable: false },
+  { id: 'r-cultural-tourist', title: 'An early cultural tourist', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: false },
+  { id: 'r-ascension', title: 'The Ascension Island experiment', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: false },
+  { id: 'r-beatrix-potter', title: 'The life of Beatrix Potter', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: false },
+  { id: 'r-bondi', title: 'Bondi: Australia\'s most famous beach', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: false },
+  { id: 'r-prosopagnosia', title: 'Prosopagnosia: Face Blindness', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: false },
+  { id: 'r-triumph-city', title: 'Triumph of the City: Book Review', category: 'reading', passageNumber: 1, duration: 20, difficulty: 'Medium', isAvailable: false },
   // Passage 2
   { id: 'r-p2-computer-games', title: 'Computer Games: Impact on Learning', category: 'reading', passageNumber: 2, duration: 20, difficulty: 'Medium', isAvailable: true },
   { id: 'r-p2-chocolate', title: 'Chocolate for the Masses', category: 'reading', passageNumber: 2, duration: 20, difficulty: 'Easy', isAvailable: true },
