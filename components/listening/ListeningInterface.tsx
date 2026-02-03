@@ -9,14 +9,14 @@ interface SectionBlockProps {
 }
 
 const SectionBlock = ({ range, instruction, children, isDarkMode }: SectionBlockProps) => (
-  <div className={`mb-10 p-8 rounded-[32px] border transition-all ${
+  <div className={`mb-6 sm:mb-8 md:mb-10 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-[24px] md:rounded-[32px] border transition-all ${
     isDarkMode ? 'bg-[#1A1A1A] border-white/5 shadow-xl' : 'bg-white border-slate-200 shadow-md'
   }`}>
-    <div className="mb-6">
-      <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] mb-1 ${isDarkMode ? 'text-gray-400' : 'text-slate-500'}`}>
+    <div className="mb-4 sm:mb-6">
+      <h4 className={`text-[10px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-1 ${isDarkMode ? 'text-gray-400' : 'text-slate-500'}`}>
         Questions {range}
       </h4>
-      <p className={`text-base font-bold leading-tight ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+      <p className={`text-sm sm:text-base font-bold leading-tight ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
         {instruction}
       </p>
     </div>

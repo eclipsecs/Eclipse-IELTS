@@ -57,9 +57,9 @@ const HomePage: React.FC<HomePageProps> = ({
   };
 
   const renderModalityCards = () => (
-    <div className="flex flex-wrap justify-center gap-8 mt-6 animate-in fade-in slide-in-from-bottom-8 duration-700 max-w-6xl mx-auto">
-      <button onClick={() => setCurrentView('reading-modalities')} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
-        <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+    <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 mt-4 sm:mt-6 animate-in fade-in slide-in-from-bottom-8 duration-700 max-w-6xl mx-auto px-2 sm:px-4">
+      <button onClick={() => setCurrentView('reading-modalities')} className={`group relative p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-[32px] md:rounded-[40px] lg:rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-2 sm:hover:-translate-y-3 w-full sm:w-[18rem] md:w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+        <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[20px] sm:rounded-[24px] md:rounded-[28px] flex items-center justify-center mb-4 sm:mb-6 md:mb-8 transition-all duration-500 group-hover:scale-105 sm:group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
           {/* Modern Cartoon Reading Icon */}
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Book base */}
@@ -100,13 +100,13 @@ const HomePage: React.FC<HomePageProps> = ({
             <path d="M50 20L51 22L53 22L51.5 23.5L52 25.5L50 24L48 25.5L48.5 23.5L47 22L49 22Z" fill="#4DB6AC"/>
           </svg>
         </div>
-        <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Reading</h3>
-        <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Academic Reading slot</p>
-        <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>See Passages <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <h3 className={`text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Reading</h3>
+        <p className={`text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 md:mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Academic Reading slot</p>
+        <div className={`inline-flex items-center gap-1.5 sm:gap-2 font-black text-[10px] xs:text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>See Passages <svg width="12" height="12" sm:width="14" sm:height="14" md:width="16" md:height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </button>
 
-      <button onClick={() => setCurrentView('listening')} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
-        <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+      <button onClick={() => setCurrentView('listening')} className={`group relative p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-[32px] md:rounded-[40px] lg:rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-2 sm:hover:-translate-y-3 w-full sm:w-[18rem] md:w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+        <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[20px] sm:rounded-[24px] md:rounded-[28px] flex items-center justify-center mb-4 sm:mb-6 md:mb-8 transition-all duration-500 group-hover:scale-105 sm:group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
           {/* Modern Cartoon Listening Icon */}
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Headphone band */}
@@ -143,13 +143,13 @@ const HomePage: React.FC<HomePageProps> = ({
             <circle cx="8" cy="16" r="2" fill="#4DB6AC"/>
           </svg>
         </div>
-        <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Listening</h3>
-        <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Academic Listening slot</p>
-        <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>See Sections <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <h3 className={`text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Listening</h3>
+        <p className={`text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 md:mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Academic Listening slot</p>
+        <div className={`inline-flex items-center gap-1.5 sm:gap-2 font-black text-[10px] xs:text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>See Sections <svg width="12" height="12" sm:width="14" sm:height="14" md:width="16" md:height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </button>
 
-      <button onClick={() => setCurrentView('full')} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
-        <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+      <button onClick={() => setCurrentView('full')} className={`group relative p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-[32px] md:rounded-[40px] lg:rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-2 sm:hover:-translate-y-3 w-full sm:w-[18rem] md:w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+        <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[20px] sm:rounded-[24px] md:rounded-[28px] flex items-center justify-center mb-4 sm:mb-6 md:mb-8 transition-all duration-500 group-hover:scale-105 sm:group-hover:scale-110 group-hover:rotate-6 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
           {/* Modern Cartoon Full Mock Icon */}
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Exam paper */}
@@ -197,13 +197,13 @@ const HomePage: React.FC<HomePageProps> = ({
             <circle cx="58" cy="4" r="0.8" fill="#8BC34A"/>
           </svg>
         </div>
-        <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Full Mock</h3>
-        <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>A simulation of Reading and Listening</p>
-        <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Take Exam <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <h3 className={`text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Full Mock</h3>
+        <p className={`text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 md:mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>A simulation of Reading and Listening</p>
+        <div className={`inline-flex items-center gap-1.5 sm:gap-2 font-black text-[10px] xs:text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Take Exam <svg width="12" height="12" sm:width="14" sm:height="14" md:width="16" md:height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </button>
 
-      <button onClick={onGoArticle} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
-        <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+      <button onClick={onGoArticle} className={`group relative p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-[32px] md:rounded-[40px] lg:rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-2 sm:hover:-translate-y-3 w-full sm:w-[18rem] md:w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+        <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[20px] sm:rounded-[24px] md:rounded-[28px] flex items-center justify-center mb-4 sm:mb-6 md:mb-8 transition-all duration-500 group-hover:scale-105 sm:group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
           {/* Modern Cartoon Article Icon */}
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Document base */}
@@ -234,13 +234,13 @@ const HomePage: React.FC<HomePageProps> = ({
             <path d="M56 8L57 10L59 10L57.5 11.5L58 13.5L56 12L54 13.5L54.5 11.5L53 10L55 10Z" fill="#4DB6AC"/>
           </svg>
         </div>
-        <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Articles</h3>
-        <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Explore articles</p>
-        <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Read Articles <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <h3 className={`text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Articles</h3>
+        <p className={`text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 md:mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Explore articles</p>
+        <div className={`inline-flex items-center gap-1.5 sm:gap-2 font-black text-[10px] xs:text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Read Articles <svg width="12" height="12" sm:width="14" sm:height="14" md:width="16" md:height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </button>
 
-      <button onClick={onGoResources} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
-        <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+      <button onClick={onGoResources} className={`group relative p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-[32px] md:rounded-[40px] lg:rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-2 sm:hover:-translate-y-3 w-full sm:w-[18rem] md:w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+        <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[20px] sm:rounded-[24px] md:rounded-[28px] flex items-center justify-center mb-4 sm:mb-6 md:mb-8 transition-all duration-500 group-hover:scale-105 sm:group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
           {/* Modern Cartoon Resources Icon */}
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Book base */}
@@ -268,13 +268,13 @@ const HomePage: React.FC<HomePageProps> = ({
             <path d="M54 6L55 8L57 8L55.5 9.5L56 11.5L54 10L52 11.5L52.5 9.5L51 8L53 8Z" fill="#26A69A"/>
           </svg>
         </div>
-        <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Resources</h3>
-        <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Books, videos & study materials</p>
-        <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Browse Resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <h3 className={`text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Resources</h3>
+        <p className={`text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 md:mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Books, videos & study materials</p>
+        <div className={`inline-flex items-center gap-1.5 sm:gap-2 font-black text-[10px] xs:text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>Browse Resources <svg width="12" height="12" sm:width="14" sm:height="14" md:width="16" md:height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </button>
 
-        <button onClick={() => {}} className={`group relative p-12 rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-3 w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
-          <div className={`w-24 h-24 rounded-[28px] flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
+        <button onClick={() => {}} className={`group relative p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-[32px] md:rounded-[40px] lg:rounded-[52px] border text-left transition-all duration-500 hover:-translate-y-2 sm:hover:-translate-y-3 w-full sm:w-[18rem] md:w-80 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24] hover:shadow-2xl hover:shadow-[#F15A24]/10' : 'bg-white border-slate-200 hover:border-slate-400 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)]'}`}>
+          <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[20px] sm:rounded-[24px] md:rounded-[28px] flex items-center justify-center mb-4 sm:mb-6 md:mb-8 transition-all duration-500 group-hover:scale-105 sm:group-hover:scale-110 group-hover:rotate-3 ${isDarkMode ? 'bg-[#252525]' : 'bg-[#F8FAFC]'}`}>
             {/* Modern Cartoon Announcements Icon */}
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Megaphone base */}
@@ -293,9 +293,9 @@ const HomePage: React.FC<HomePageProps> = ({
               <path d="M56 28L57 30L59 30L57.5 31.5L58 33.5L56 32L54 33.5L54.5 31.5L53 30L55 30Z" fill="#4DB6AC"/>
             </svg>
           </div>
-          <h3 className={`text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Announcements</h3>
-          <p className={`text-sm leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Updates & news about the website</p>
-          <div className={`inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>View Updates <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          <h3 className={`text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Announcements</h3>
+          <p className={`text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 md:mb-8 transition-colors ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Updates & news about the website</p>
+          <div className={`inline-flex items-center gap-1.5 sm:gap-2 font-black text-[10px] xs:text-xs uppercase tracking-widest transition-colors ${isDarkMode ? 'text-[#F15A24]' : 'text-[#1D1D4B] group-hover:text-[#F15A24]'}`}>View Updates <svg width="12" height="12" sm:width="14" sm:height="14" md:width="16" md:height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </button>
     </div>
   );

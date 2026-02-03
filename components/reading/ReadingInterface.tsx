@@ -147,17 +147,17 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
 
     // Default input format
     return (
-      <div key={q.id} id={`q-${q.id}`} className={`mb-4 p-6 rounded-[24px] border transition-all ${isDarkMode ? 'bg-slate-800/40 border-white/5 hover:border-white/10' : 'bg-white border-slate-200 shadow-sm'}`}>
-        <div className="flex gap-4">
-          <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 transition-colors ${isDarkMode ? 'bg-white/5 text-[#F15A24]' : 'bg-slate-100 text-slate-500'}`}>{q.id}</span>
+      <div key={q.id} id={`q-${q.id}`} className={`mb-3 sm:mb-4 p-4 sm:p-6 rounded-xl sm:rounded-[24px] border transition-all ${isDarkMode ? 'bg-slate-800/40 border-white/5 hover:border-white/10' : 'bg-white border-slate-200 shadow-sm'}`}>
+        <div className="flex gap-3 sm:gap-4">
+          <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center font-bold text-[10px] sm:text-xs shrink-0 transition-colors ${isDarkMode ? 'bg-white/5 text-[#F15A24]' : 'bg-slate-100 text-slate-500'}`}>{q.id}</span>
           <div className="flex-1">
-            <p className={`text-[15px] mb-4 font-bold leading-relaxed ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{q.text}</p>
+            <p className={`text-[13px] sm:text-[15px] mb-3 sm:mb-4 font-bold leading-relaxed ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{q.text}</p>
             <input
               type="text"
               value={(userAnswers[q.id] as string) || ''}
               onChange={(e) => onAnswerChange(q.id, e.target.value)}
               placeholder="Type your answer..."
-              className={`w-full p-3.5 rounded-xl border outline-none transition-all text-sm font-medium ${
+              className={`w-full p-3 sm:p-3.5 rounded-xl border outline-none transition-all text-xs sm:text-sm font-medium ${
                 isDarkMode ? 'bg-[#020617]/50 border-white/5 text-white focus:border-[#F15A24] placeholder:text-slate-600' : 'bg-slate-50 border-slate-200 text-slate-900 focus:border-blue-800'
               }`}
             />
@@ -307,7 +307,7 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
   }
 
   return (
-    <div className={`flex h-full w-full divide-x transition-colors duration-500 relative ${isDarkMode ? 'divide-white/5' : 'divide-slate-200'}`}>
+    <div className={`flex flex-col md:flex-row h-full w-full divide-x transition-colors duration-500 relative ${isDarkMode ? 'divide-white/5' : 'divide-slate-200'}`}>
       {toolbarPos && (
         <div className="fixed z-[100] -translate-x-1/2 -translate-y-full mb-4 animate-in fade-in zoom-in duration-200" style={{ left: toolbarPos.x, top: toolbarPos.y }}>
           <div className={`flex items-center gap-1.5 p-2 rounded-2xl border shadow-2xl backdrop-blur-xl ${isDarkMode ? 'bg-slate-900/90 border-white/10' : 'bg-white/90 border-slate-200'}`}>
@@ -318,18 +318,18 @@ const ReadingInterface: React.FC<ReadingInterfaceProps> = ({
         </div>
       )}
 
-      <div ref={passageRef} className={`w-1/2 overflow-y-auto px-12 py-12 transition-colors duration-500 select-text ${isDarkMode ? 'bg-[#020617] text-slate-300' : 'bg-white text-slate-800'}`}>
-        <div className="mb-6"><span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-[#F15A24]/60' : 'opacity-50'}`}>READING PASSAGE {passageNumber}</span></div>
-        <h2 className={`text-3xl font-black mb-3 tracking-tight transition-colors duration-500 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{passageTitle}</h2>
-        <h3 className={`text-lg italic mb-10 pb-6 border-b transition-colors duration-500 ${isDarkMode ? 'text-slate-500 border-white/5' : 'text-slate-500 border-slate-100'}`}>{passageSubtitle}</h3>
-        <div className="space-y-6">
-          {(passageContent || []).map((para, i) => (<p key={i} data-para-index={i} className={`text-[17px] leading-[1.8] antialiased transition-opacity duration-500 ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}`}>{renderHighlightedText(para, i)}</p>))}
+      <div ref={passageRef} className={`w-full md:w-1/2 overflow-y-auto px-4 sm:px-6 md:px-10 lg:px-12 py-6 sm:py-8 md:py-12 transition-colors duration-500 select-text ${isDarkMode ? 'bg-[#020617] text-slate-300' : 'bg-white text-slate-800'}`}>
+        <div className="mb-4 sm:mb-6"><span className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-[#F15A24]/60' : 'opacity-50'}`}>READING PASSAGE {passageNumber}</span></div>
+        <h2 className={`text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3 tracking-tight transition-colors duration-500 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{passageTitle}</h2>
+        <h3 className={`text-sm sm:text-lg italic mb-6 sm:mb-10 pb-4 sm:pb-6 border-b transition-colors duration-500 ${isDarkMode ? 'text-slate-500 border-white/5' : 'text-slate-500 border-slate-100'}`}>{passageSubtitle}</h3>
+        <div className="space-y-4 sm:space-y-6">
+          {(passageContent || []).map((para, i) => (<p key={i} data-para-index={i} className={`text-sm sm:text-[15px] md:text-[17px] leading-[1.7] sm:leading-[1.8] antialiased transition-opacity duration-500 ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}`}>{renderHighlightedText(para, i)}</p>))}
         </div>
-        <div className="h-40"></div>
+        <div className="h-20 sm:h-32 md:h-40"></div>
       </div>
 
-      <div className={`w-1/2 overflow-y-auto px-10 py-12 transition-colors duration-500 ${isDarkMode ? 'bg-[#0F172A]' : 'bg-[#F1F5F9]'}`}>
-        <div className="max-w-2xl mx-auto space-y-12 pb-60">
+      <div className={`w-full md:w-1/2 overflow-y-auto px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-12 transition-colors duration-500 ${isDarkMode ? 'bg-[#0F172A]' : 'bg-[#F1F5F9]'}`}>
+        <div className="max-w-2xl mx-auto space-y-8 sm:space-y-10 md:space-y-12 pb-40 sm:pb-50 md:pb-60">
           {sections.map(section => (
             <div key={section.id}>
               <div className="mb-6">

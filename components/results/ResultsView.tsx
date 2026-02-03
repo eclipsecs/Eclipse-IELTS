@@ -83,21 +83,21 @@ const ResultsView: React.FC<ResultsViewProps> = ({ state, questions, onRestart, 
   };
 
   return (
-    <div className={`min-h-screen pb-10 transition-colors duration-300 ${isDarkMode ? 'bg-[#121212]' : 'bg-[#F4F4F4]'}`}>
+    <div className={`min-h-screen pb-6 sm:pb-10 transition-colors duration-300 ${isDarkMode ? 'bg-[#121212]' : 'bg-[#F4F4F4]'}`}>
       {/* Back Button */}
-      <div className="max-w-4xl mx-auto px-4 pt-6">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 pt-4 sm:pt-6">
         <button 
           onClick={onGoHome || onRestart}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs uppercase tracking-[0.15em] transition-all duration-300 ${isDarkMode ? 'bg-[#1a1a1a] text-white hover:bg-[#F15A24] shadow-sm border border-[#333]' : 'bg-white text-slate-700 hover:bg-[#1D1D4B] hover:text-white shadow-sm border border-slate-200'}`}
+          className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl font-bold text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] transition-all duration-300 ${isDarkMode ? 'bg-[#1a1a1a] text-white hover:bg-[#F15A24] shadow-sm border border-[#333]' : 'bg-white text-slate-700 hover:bg-[#1D1D4B] hover:text-white shadow-sm border border-slate-200'}`}
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="14" height="14" sm:width="16" sm:height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
           <span>Back</span>
         </button>
       </div>
       
-      <div className="max-w-4xl mx-auto px-4 pt-2">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 pt-2">
         <div className={`rounded-[30px] shadow-xl overflow-hidden ${isDarkMode ? 'bg-[#1e1e1e]' : 'bg-white'}`}>
           <div className="bg-[#F15A24] text-white p-8 text-center">
             <h2 className="text-xs uppercase tracking-[0.4em] font-black mb-3">Score Report</h2>

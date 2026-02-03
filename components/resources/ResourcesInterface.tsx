@@ -37,22 +37,22 @@ const ResourcesInterface: React.FC<ResourcesInterfaceProps> = ({
 
   const renderMainView = () => (
     <div className="animate-in fade-in slide-in-from-right-8 duration-500 w-full">
-      <div className="flex flex-col items-center text-center mb-10">
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <button onClick={onGoHome} className={`p-3 rounded-2xl transition-all border shadow-sm ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] text-white hover:border-[#F15A24]' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+      <div className="flex flex-col items-center text-center mb-6 sm:mb-8 md:mb-10">
+        <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+          <button onClick={onGoHome} className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl transition-all border shadow-sm ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] text-white hover:border-[#F15A24]' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}>
+            <svg width="16" height="16" sm:width="20" sm:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
               <polyline points="9 22 9 12 15 12 15 22"/>
             </svg>
           </button>
-          <h2 className="text-3xl font-black uppercase tracking-tight">Learning <span className="text-[#F15A24]">Resources</span></h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight">Learning <span className="text-[#F15A24]">Resources</span></h2>
         </div>
-        <p className={isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}>Explore books, videos, and study materials</p>
+        <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-[#b0b0b0]' : 'opacity-50'}`}>Explore books, videos, and study materials</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto px-2 sm:px-4">
         {/* Study Materials */}
-        <button onClick={() => setCurrentView('study-materials')} className={`group relative p-8 rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
-          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
+        <button onClick={() => setCurrentView('study-materials')} className={`group relative p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-[32px] md:rounded-[40px] border text-left transition-all duration-500 hover:-translate-y-2 sm:hover:-translate-y-3 ${isDarkMode ? 'bg-[#1e1e1e] border-[#3a3a3a] hover:border-[#F15A24]' : 'bg-white border-slate-200 hover:border-slate-400 shadow-lg hover:shadow-xl'}`}>
+          <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5 md:mb-6 transition-all duration-500 group-hover:scale-105 sm:group-hover:scale-110 ${isDarkMode ? 'bg-[#252525]' : 'bg-slate-100'}`}>
             <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="8" y="10" width="48" height="44" rx="4" fill="#26A69A"/>
               <rect x="12" y="14" width="40" height="36" rx="2" fill="#E0F2F1"/>
