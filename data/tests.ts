@@ -18,14 +18,14 @@ export const AVAILABLE_TESTS: TestMeta[] = [
   { id: 'r-p3-feeding-world', title: 'Feeding the World: Food Security', category: 'reading', passageNumber: 3, duration: 20, difficulty: 'Medium', isAvailable: true },
   { id: 'r-p3-antarctica', title: 'Antarctic Exploration', category: 'reading', passageNumber: 3, duration: 20, difficulty: 'Medium', isAvailable: true },
   { 
-    id: 'l-full-1', 
-    title: 'Academic Listening Mock 01', 
+    id: 'test-1', 
+    title: 'Test 1', 
     category: 'listening', 
     sectionNumber: 1, 
     duration: 30, 
     difficulty: 'Medium', 
     isAvailable: true, 
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' 
+    audioUrl: '' 
   },
   { 
     id: 'w-t1-3', 

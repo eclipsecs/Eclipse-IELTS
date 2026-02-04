@@ -2,19 +2,25 @@ import React, { useState, useRef } from 'react';
 import { Question, QuestionType, Theme } from '../../types';
 
 interface SectionBlockProps {
+  section?: string;
   range: string;
   instruction: string;
   children?: React.ReactNode;
   isDarkMode: boolean;
 }
 
-const SectionBlock = ({ range, instruction, children, isDarkMode }: SectionBlockProps) => (
+const SectionBlock = ({ section, range, instruction, children, isDarkMode }: SectionBlockProps) => (
   <div className={`mb-6 sm:mb-8 md:mb-10 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-[24px] md:rounded-[32px] border transition-all ${
     isDarkMode ? 'bg-[#1A1A1A] border-white/5 shadow-xl' : 'bg-white border-slate-200 shadow-md'
   }`}>
+    {section && (
+      <h3 className={`text-xs sm:text-xs font-black uppercase tracking-[0.2em] mb-2 ${isDarkMode ? 'text-orange-500' : 'text-orange-600'}`}>
+        {section}
+      </h3>
+    )}
     <div className="mb-4 sm:mb-6">
       <h4 className={`text-[10px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-1 ${isDarkMode ? 'text-gray-400' : 'text-slate-500'}`}>
-        Questions {range}
+        {range}
       </h4>
       <p className={`text-sm sm:text-base font-bold leading-tight ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
         {instruction}
@@ -102,6 +108,14 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
     </div>
   );
 
+  // Group questions by section
+  const groupedQuestions = questions.reduce((acc, q) => {
+    const key = q.section || 'default';
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(q);
+    return acc;
+  }, {} as Record<string, Question[]>);
+
   return (
     <div className={`flex h-full w-full transition-colors ${isDarkMode ? 'bg-[#121212]' : 'bg-[#F8FAFC]'}`}>
       {/* Floating Back Button */}
@@ -135,22 +149,46 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
             <audio ref={audioRef} src={defaultAudioUrl} onTimeUpdate={handleTimeUpdate} onEnded={() => setIsPlaying(false)} className="hidden" />
           </div>
 
-          <div>
-            <h2 className={`text-2xl font-black mb-10 flex items-center gap-6 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
-              <span className="text-blue-500">Practice Sections</span>
-              <div className="flex-1 h-px bg-slate-200 opacity-20"></div>
-            </h2>
+          {Object.entries(groupedQuestions).map(([section, sectionQuestions]) => {
+            const sectionQ = sectionQuestions as Question[];
+            const innerGroups = sectionQ.reduce((acc, q) => {
+              const key = q.group || 'default';
+              if (!acc[key]) acc[key] = [];
+              acc[key].push(q);
+              return acc;
+            }, {} as Record<string, Question[]>);
 
-            {questions.map((q, i) => {
-               if (q.type === QuestionType.MULTIPLE_CHOICE) return renderPartMCQ(q);
-               return (
-                 <div key={q.id} className="mb-6 p-4 rounded-xl border border-transparent hover:border-blue-500/20 transition-all">
-                    <p className="text-sm font-bold mb-3">{q.text}</p>
-                    {renderInput(q)}
-                 </div>
-               );
-            })}
-          </div>
+            return (
+              <div key={section}>
+                {Object.entries(innerGroups).map(([group, groupQuestions]) => {
+                  const groupQ = groupQuestions as Question[];
+                  const firstQ = groupQ[0];
+                  return (
+                    <React.Fragment key={`${section}-${group}`}>
+                      <SectionBlock
+                        section={firstQ.section}
+                        range={firstQ.group || ''}
+                        instruction={firstQ.group ? `Complete the notes below.` : 'Answer the questions below.'}
+                        isDarkMode={isDarkMode}
+                      >
+                        {groupQ.map(q => {
+                          if (q.type === QuestionType.MULTIPLE_CHOICE || q.type === QuestionType.MATCHING) {
+                            return renderPartMCQ(q);
+                          }
+                          return (
+                            <div key={q.id} className="mb-6 p-4 rounded-xl border border-transparent hover:border-blue-500/20 transition-all">
+                               <p className="text-sm font-bold mb-3">{q.text}</p>
+                               {renderInput(q)}
+                            </div>
+                          );
+                        })}
+                      </SectionBlock>
+                    </React.Fragment>
+                  );
+                })}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
