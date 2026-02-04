@@ -157,6 +157,84 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
     </div>
   );
 
+  // Render IELTS-style matching box (Section 2 format)
+  const renderMatchingBox = (questions: Question[]) => {
+    if (questions.length === 0) return null;
+    
+    const firstQ = questions[0];
+    const heading = firstQ.heading || '';
+    const options = firstQ.options || [];
+    
+    return (
+      <div className="mt-6">
+        {/* Centered heading */}
+        {heading && (
+          <h3 className={`text-center text-lg sm:text-xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+            {heading}
+          </h3>
+        )}
+        
+        {/* Two-column layout: Questions list and Options box */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+          {/* Left column: Questions with dotted lines */}
+          <div className="flex-1">
+            {questions.map(q => (
+              <div 
+                key={q.id} 
+                className={`flex items-center py-3 border-b ${
+                  isDarkMode ? 'border-white/10' : 'border-slate-200'
+                }`}
+              >
+                <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+                  {q.text}
+                </span>
+                <span className={`font-black mx-2 ${isDarkMode ? 'text-gray-400' : 'text-slate-500'}`}>
+                  {q.id}
+                </span>
+                <span className={`flex-1 border-b border-dotted ${isDarkMode ? 'border-white/20' : 'border-slate-300'} mx-2`}></span>
+                <input
+                  type="text"
+                  value={(userAnswers[q.id] as string) || ''}
+                  onChange={(e) => onAnswerChange(q.id, e.target.value)}
+                  maxLength={1}
+                  className={`w-10 h-10 text-center font-bold text-lg rounded-md border-2 outline-none transition-all ${
+                    isDarkMode 
+                      ? 'bg-[#0a0a0f] border-white/20 text-white focus:border-orange-500' 
+                      : 'bg-white border-slate-200 text-slate-900 focus:border-orange-500'
+                  }`}
+                  placeholder=""
+                />
+              </div>
+            ))}
+          </div>
+          
+          {/* Right column: Options box */}
+          <div className="lg:w-72 flex-shrink-0">
+            <div className={`p-4 rounded-lg border-2 ${isDarkMode ? 'bg-[#0a0a0f] border-white/20' : 'bg-white border-slate-300'}`}>
+              <div className="space-y-2">
+                {options.map(opt => (
+                  <div 
+                    key={opt.value} 
+                    className={`flex items-center gap-2 py-1 ${
+                      isDarkMode ? 'text-white' : 'text-slate-900'
+                    }`}
+                  >
+                    <span className={`font-black w-5 ${isDarkMode ? 'text-orange-500' : 'text-orange-600'}`}>
+                      {opt.value}
+                    </span>
+                    <span className="text-sm font-medium">
+                      {opt.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // Check if this is Test 1 (special form layout)
   const isTest1 = questions[0]?.section === 'SECTION 1' && questions[0]?.group === 'header';
 
@@ -295,8 +373,15 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
               </div>
             </SectionBlock>
 
-            {/* SECTION 2 */}
-            {section2.map(q => renderPartMCQ(q))}
+            {/* SECTION 2 - Matching Box Format */}
+            <SectionBlock
+              section="SECTION 2"
+              range="Questions 11-15"
+              instruction="Choose FIVE answers from the box and write the correct letter, A–G, next to questions 11–15."
+              isDarkMode={isDarkMode}
+            >
+              {renderMatchingBox(section2)}
+            </SectionBlock>
           </div>
         </div>
       </div>

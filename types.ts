@@ -2,6 +2,8 @@
 export enum QuestionType {
   MATCHING_ENDINGS = 'MATCHING_ENDINGS',
   MATCHING_PEOPLE = 'MATCHING_PEOPLE',
+  MATCHING_BOX = 'MATCHING_BOX',
+  NOTE_COMPLETION = 'NOTE_COMPLETION',
   TFNG = 'TFNG',
   FILL_GAPS = 'FILL_GAPS',
   MULTIPLE_CHOICE = 'MULTIPLE_CHOICE',
@@ -29,6 +31,7 @@ export interface Question {
   section?: string;         // e.g., "SECTION 1", "SECTION 2"
   noteText?: string;        // For note completion: text before the blank
   blankText?: string;       // For note completion: text after the blank
+  heading?: string;          // For section heading like "Community Centre Facilities"
 }
 
 export interface TestState {
