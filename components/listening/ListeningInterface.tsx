@@ -509,11 +509,11 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
                     </div>
                     <div className="flex flex-col">
                       <div className="flex items-center">
-                        <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Cost of ticket per person: </span>
+                        <span className={`font-bold min-w-[180px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Cost of ticket per person:</span>
                         <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>$1.50</span>
                       </div>
                       <div className="flex items-center gap-3 mt-1">
-                        <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Date: Starts on</span>
+                        <span className={`font-bold min-w-[180px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Date: Starts on</span>
                         <input
                           type="text"
                           value={(userAnswers[19] as string) || ''}
@@ -531,13 +531,13 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
                   <div className={`my-4 border-t ${isDarkMode ? 'border-white/10' : 'border-slate-200'}`}></div>
                   
                   {/* Second Event */}
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div className="flex items-center">
-                      <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Event:</span>
+                      <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Event:</span>
                       <span className={isDarkMode ? 'text-white' : 'text-slate-900'}>Photography exhibition</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Entrants:</span>
+                      <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Entrants:</span>
                       <input
                         type="text"
                         value={(userAnswers[20] as string) || ''}
@@ -549,7 +549,7 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
                       />
                     </div>
                     <div className="flex items-center">
-                      <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Type of prize:</span>
+                      <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Type of prize:</span>
                       <span className={isDarkMode ? 'text-white' : 'text-slate-900'}>DVDs</span>
                       <span className={`mx-4 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Cost of ticket:</span>
                       <span className={isDarkMode ? 'text-white' : 'text-slate-900'}>$2.00</span>
