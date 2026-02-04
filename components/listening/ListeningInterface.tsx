@@ -382,7 +382,7 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
               isDarkMode={isDarkMode}
             >
               {/* Combined box for matching and form completion */}
-              <div className={`p-6 rounded-xl border-2 ${isDarkMode ? 'bg-[#0a0a0f] border-white/20' : 'bg-white border-slate-300'}`}>
+              <div className={`p-6 rounded-xl ${isDarkMode ? 'bg-[#0a0a0f]' : 'bg-white'}`}>
                 {/* Questions 11-15 - Matching */}
                 <div className="mb-6">
                   <h3 className={`text-center text-lg font-black mb-4 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
@@ -396,13 +396,14 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
                           key={q.id} 
                           className={`flex items-center py-3 border-b ${isDarkMode ? 'border-white/10' : 'border-slate-200'}`}
                         >
-                          <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+                          <span className={`font-bold min-w-[180px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
                             {q.text}
                           </span>
                           <span className={`font-black mx-2 ${isDarkMode ? 'text-gray-400' : 'text-slate-500'}`}>
                             {q.id}
                           </span>
                           <span className={`flex-1 border-b border-dotted ${isDarkMode ? 'border-white/20' : 'border-slate-300'} mx-2`}></span>
+                          <span className="mx-4"></span>
                           <input
                             type="text"
                             value={(userAnswers[q.id] as string) || ''}
@@ -448,9 +449,15 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
                 {/* Questions 16-20 - Form Completion Box */}
                 <div className={`mt-6 p-4 rounded-lg ${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-white'}`}>
                   {/* Instruction for questions 16-20 */}
-                  <p className={`text-sm font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Questions 16-20</p>
-                  <p className={`text-xs mb-1 ${isDarkMode ? 'text-gray-400' : 'text-slate-500'}`}>Complete the notes below.</p>
-                  <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-slate-500'}`}>Write <span className="font-bold">NO MORE THAN TWO WORDS AND/OR A NUMBER</span> for each answer.</p>
+                  <div className="mb-4">
+                    <h4 className={`text-[10px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-1 ${isDarkMode ? 'text-gray-400' : 'text-slate-500'}`}>
+                      Questions 16-20
+                    </h4>
+                    <p className={`text-sm sm:text-base font-bold leading-tight ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+                      Complete the notes below.<br/>
+                      Write <span className="font-bold">NO MORE THAN TWO WORDS AND/OR A NUMBER</span> for each answer.
+                    </p>
+                  </div>
                   
                   {/* Box title */}
                   <h4 className={`text-center text-sm font-black uppercase tracking-[0.15em] mb-4 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
@@ -458,65 +465,65 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
                   </h4>
                   
                   {/* First Event */}
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div className="flex items-center">
-                      <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Date:</span>
+                      <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Date:</span>
                       <span className={isDarkMode ? 'text-white' : 'text-slate-900'}>Oct. 14th</span>
                     </div>
-                    <div className="flex items-center">
-                      <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Event:</span>
-                      <span className={`border-b border-dotted ${isDarkMode ? 'border-white/30' : 'border-slate-300'} mx-2 flex-1 max-w-[120px]`}></span>
+                    <div className="flex items-center gap-3">
+                      <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Event:</span>
                       <input
                         type="text"
                         value={(userAnswers[16] as string) || ''}
                         onChange={(e) => onAnswerChange(16, e.target.value)}
-                        className={`flex-1 max-w-[120px] p-1.5 font-bold outline-none transition-all text-sm ${
-                          isDarkMode ? 'text-white' : 'text-black'
+                        className={`flex-1 max-w-[140px] p-2 rounded-md border-2 font-bold outline-none transition-all text-sm ${
+                          isDarkMode ? 'bg-slate-900/50 border-slate-800 text-white focus:border-blue-500' : 'bg-white border-slate-200 text-black focus:border-blue-500'
                         }`}
                         placeholder="16"
                       />
                       <span className={`mx-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>competition</span>
                     </div>
-                    <div className="flex items-center">
-                      <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Entrants:</span>
-                      <span className={`border-b border-dotted ${isDarkMode ? 'border-white/30' : 'border-slate-300'} mx-2 flex-1 max-w-[150px]`}></span>
+                    <div className="flex items-center gap-3">
+                      <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Entrants:</span>
                       <input
                         type="text"
                         value={(userAnswers[17] as string) || ''}
                         onChange={(e) => onAnswerChange(17, e.target.value)}
-                        className={`flex-1 max-w-[150px] p-1.5 font-bold outline-none transition-all text-sm ${
-                          isDarkMode ? 'text-white' : 'text-black'
+                        className={`flex-1 max-w-[150px] p-2 rounded-md border-2 font-bold outline-none transition-all text-sm ${
+                          isDarkMode ? 'bg-slate-900/50 border-slate-800 text-white focus:border-blue-500' : 'bg-white border-slate-200 text-black focus:border-blue-500'
                         }`}
                         placeholder="17"
                       />
                     </div>
-                    <div className="flex items-center">
-                      <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Type of prize:</span>
-                      <span className={`border-b border-dotted ${isDarkMode ? 'border-white/30' : 'border-slate-300'} mx-2 flex-1 max-w-[150px]`}></span>
+                    <div className="flex items-center gap-3">
+                      <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Type of prize:</span>
                       <input
                         type="text"
                         value={(userAnswers[18] as string) || ''}
                         onChange={(e) => onAnswerChange(18, e.target.value)}
-                        className={`flex-1 max-w-[150px] p-1.5 font-bold outline-none transition-all text-sm ${
-                          isDarkMode ? 'text-white' : 'text-black'
+                        className={`flex-1 max-w-[150px] p-2 rounded-md border-2 font-bold outline-none transition-all text-sm ${
+                          isDarkMode ? 'bg-slate-900/50 border-slate-800 text-white focus:border-blue-500' : 'bg-white border-slate-200 text-black focus:border-blue-500'
                         }`}
                         placeholder="18"
                       />
                     </div>
-                    <div className="flex items-center">
-                      <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Cost of ticket:</span>
-                      <span className={isDarkMode ? 'text-white' : 'text-slate-900'}>$1.50</span>
-                      <span className={`mx-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Date: Starts on</span>
-                      <span className={`border-b border-dotted ${isDarkMode ? 'border-white/30' : 'border-slate-300'} mx-2 flex-1 max-w-[100px]`}></span>
-                      <input
-                        type="text"
-                        value={(userAnswers[19] as string) || ''}
-                        onChange={(e) => onAnswerChange(19, e.target.value)}
-                        className={`flex-1 max-w-[100px] p-1.5 font-bold outline-none transition-all text-sm ${
-                          isDarkMode ? 'text-white' : 'text-black'
-                        }`}
-                        placeholder="19"
-                      />
+                    <div className="flex flex-col">
+                      <div className="flex items-center">
+                        <span className={`font-bold min-w-[140px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Cost of ticket per person: </span>
+                        <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>$1.50</span>
+                      </div>
+                      <div className="flex items-center gap-3 mt-1">
+                        <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Date: Starts on</span>
+                        <input
+                          type="text"
+                          value={(userAnswers[19] as string) || ''}
+                          onChange={(e) => onAnswerChange(19, e.target.value)}
+                          className={`flex-1 max-w-[150px] p-2 rounded-md border-2 font-bold outline-none transition-all text-sm ${
+                            isDarkMode ? 'bg-slate-900/50 border-slate-800 text-white focus:border-blue-500' : 'bg-white border-slate-200 text-black focus:border-blue-500'
+                          }`}
+                          placeholder="19"
+                        />
+                      </div>
                     </div>
                   </div>
                   
@@ -529,15 +536,14 @@ const ListeningInterface: React.FC<ListeningInterfaceProps> = ({
                       <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Event:</span>
                       <span className={isDarkMode ? 'text-white' : 'text-slate-900'}>Photography exhibition</span>
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-3">
                       <span className={`font-bold min-w-[100px] ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Entrants:</span>
-                      <span className={`border-b border-dotted ${isDarkMode ? 'border-white/30' : 'border-slate-300'} mx-2 flex-1 max-w-[150px]`}></span>
                       <input
                         type="text"
                         value={(userAnswers[20] as string) || ''}
                         onChange={(e) => onAnswerChange(20, e.target.value)}
-                        className={`flex-1 max-w-[150px] p-1.5 font-bold outline-none transition-all text-sm ${
-                          isDarkMode ? 'text-white' : 'text-black'
+                        className={`flex-1 max-w-[150px] p-2 rounded-md border-2 font-bold outline-none transition-all text-sm ${
+                          isDarkMode ? 'bg-slate-900/50 border-slate-800 text-white focus:border-blue-500' : 'bg-white border-slate-200 text-black focus:border-blue-500'
                         }`}
                         placeholder="20"
                       />
