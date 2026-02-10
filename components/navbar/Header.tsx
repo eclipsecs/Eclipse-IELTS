@@ -36,14 +36,14 @@ const Header: React.FC<HeaderProps> = ({ timeRemaining, onFinish, theme, onToggl
   const isDarkMode = theme === 'dark';
 
   return (
-    <header className={`w-full border-b flex flex-wrap items-center justify-between px-4 py-3 z-50 transition-colors duration-300 ${isDarkMode ? 'bg-[#020617] border-white/10' : 'bg-white border-slate-200'}`}>
+    <header className={`w-full border-b flex flex-wrap items-center justify-between px-4 py-3 z-50 transition-all duration-300 ${isDarkMode ? 'bg-[#0F0F1A] border-white/10' : 'bg-white border-slate-200'}`}>
       
       {/* Left side - Home Button */}
       <button 
         onClick={onGoHome}
-        className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${isDarkMode ? 'bg-[#1a1a1a] text-white hover:bg-[#F15A24] border border-white/10' : 'bg-slate-100 text-slate-700 hover:bg-[#1D1D4B] hover:text-white border border-slate-200'}`}
+        className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all btn-hover-lift ${isDarkMode ? 'bg-[#252542] text-white hover:bg-[#FF6B35] border border-white/10' : 'bg-slate-100 text-slate-700 hover:bg-[#FF6B35] border border-slate-200'}`}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="cartoon-svg">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
           <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
@@ -56,9 +56,9 @@ const Header: React.FC<HeaderProps> = ({ timeRemaining, onFinish, theme, onToggl
         {isAuthenticated && user ? (
           <button
             onClick={onGoProfile}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${isDarkMode ? 'bg-[#F15A24] text-white hover:opacity-90' : 'bg-[#1D1D4B] text-white hover:opacity-90'}`}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all btn-hover-lift ${isDarkMode ? 'bg-gradient-to-r from-[#FF6B35] to-[#FF7F50] text-white hover:opacity-90' : 'bg-gradient-to-r from-[#1D1D4B] to-[#2D2D5C] text-white hover:opacity-90'}`}
           >
-            <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+            <div className="w-6 h-6 rounded-xl bg-white/20 flex items-center justify-center">
               {user.displayName.charAt(0).toUpperCase()}
             </div>
             <span className="hidden sm:inline">{user.displayName.split(' ')[0]}</span>
@@ -67,13 +67,13 @@ const Header: React.FC<HeaderProps> = ({ timeRemaining, onFinish, theme, onToggl
           <div className="flex items-center gap-2">
             <button
               onClick={onGoProfile}
-              className={`px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${isDarkMode ? 'bg-transparent text-white hover:text-[#F15A24] border border-white/20' : 'bg-transparent text-[#1D1D4B] hover:text-[#F15A24] border border-[#1D1D4B]/20'}`}
+              className={`px-4 py-2.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all hover:scale-105 ${isDarkMode ? 'bg-transparent text-white hover:text-[#FF6B35] border border-white/20' : 'bg-transparent text-[#1A1A2E] hover:text-[#FF6B35] border border-slate-300'}`}
             >
               Login
             </button>
             <button
               onClick={onGoProfile}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${isDarkMode ? 'bg-[#F15A24] text-white hover:opacity-90' : 'bg-[#1D1D4B] text-white hover:opacity-90'}`}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all btn-hover-lift ${isDarkMode ? 'bg-gradient-to-r from-[#FF6B35] to-[#FF7F50] text-white' : 'bg-gradient-to-r from-[#FF6B35] to-[#FF7F50] text-white'}`}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -89,15 +89,15 @@ const Header: React.FC<HeaderProps> = ({ timeRemaining, onFinish, theme, onToggl
         {/* Theme Toggle */}
         <button 
           onClick={onToggleTheme}
-          className={`p-2.5 rounded-xl transition-all ${isDarkMode ? 'bg-[#1a1a1a] text-yellow-400 border border-white/10 hover:border-white/20' : 'bg-slate-100 text-indigo-500 border border-slate-200 hover:border-slate-300'}`}
+          className={`p-2.5 rounded-2xl transition-all btn-hover-lift ${isDarkMode ? 'bg-[#252542] text-[#FFD93D] border border-white/10 hover:border-white/20' : 'bg-slate-100 text-[#FF6B35] border border-slate-200 hover:border-slate-300'}`}
         >
           {isDarkMode ? (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="cartoon-svg">
               <circle cx="12" cy="12" r="5"/>
               <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
             </svg>
           ) : (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="cartoon-svg">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
             </svg>
           )}
@@ -105,11 +105,11 @@ const Header: React.FC<HeaderProps> = ({ timeRemaining, onFinish, theme, onToggl
 
         {/* Time or Timer Display */}
         {useClock ? (
-          <div className={`px-4 py-2 rounded-xl font-mono font-bold text-sm ${isDarkMode ? 'bg-[#1a1a1a] text-white border border-white/10' : 'bg-slate-100 text-slate-900 border border-slate-200'}`}>
+          <div className={`px-4 py-2.5 rounded-2xl font-mono font-bold text-sm transition-all ${isDarkMode ? 'bg-[#252542] text-white border border-white/10' : 'bg-slate-100 text-slate-900 border border-slate-200'}`}>
             {uzbekistanTime}
           </div>
         ) : (
-          <div className={`px-4 py-2 rounded-xl font-mono font-bold text-sm ${timeRemaining < 300 ? 'text-red-500' : isDarkMode ? 'bg-[#1a1a1a] text-white border border-white/10' : 'bg-slate-100 text-slate-900 border border-slate-200'}`}>
+          <div className={`px-4 py-2.5 rounded-2xl font-mono font-bold text-sm transition-all ${timeRemaining < 300 ? 'text-[#EF4444] bg-[#252542]' : isDarkMode ? 'bg-[#252542] text-white border border-white/10' : 'bg-slate-100 text-slate-900 border border-slate-200'}`}>
             {Math.floor(timeRemaining / 60).toString().padStart(2, '0')}:{(timeRemaining % 60).toString().padStart(2, '0')}
           </div>
         )}
@@ -118,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ timeRemaining, onFinish, theme, onToggl
         {showFinishButton && (
           <button
             onClick={onFinish}
-            className={`flex items-center gap-2 px-5 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${isDarkMode ? 'bg-[#1a1a1a] text-white hover:bg-[#F15A24] border border-white/10' : 'bg-slate-100 text-slate-700 hover:bg-[#1D1D4B] hover:text-white border border-slate-200'}`}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all btn-hover-lift ${isDarkMode ? 'bg-[#252542] text-white hover:bg-[#FF6B35] border border-white/10' : 'bg-slate-100 text-slate-700 hover:bg-[#FF6B35] hover:text-white border border-slate-200'}`}
           >
             Finish
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
